@@ -16,7 +16,7 @@ these can be found at:
 
 All of the course curriculum is published as GitBooks. They can be found here:
 
-[https://trallard.gitbooks.io/code-first-girls-advanced-python-course/content/](https://trallard.gitbooks.io/code-first-girls-advanced-python-course/content/)
+[https://darrenvong.gitbooks.io/code-first-girls-advanced-python-course/content/](https://darrenvong.gitbooks.io/code-first-girls-advanced-python-course/content/)
 
 Note that additional scripts/demos will be added along the course by the instructors in the
 GitHub repository.
