@@ -45,13 +45,17 @@ A library is a collection of pre-written code we want to re-use. As an example, 
 
 `pip –V`
 
-you should see a legend stating the version of pip you have installed and the location of this package. If you do not have pip installed go to [https://pip.pypa.io/en/stable/installing/ - do-i-need-to-install-pip](https://pip.pypa.io/en/stable/installing/#do-i-need-to-install-pip) and download **get-pip.py**
+you should see a legend stating the version of pip you have installed, the location of this package
+and you are good to go.
+
+However, if you do not have pip installed go to [https://pip.pypa.io/en/stable/installing/ - do-i-need-to-install-pip](https://pip.pypa.io/en/stable/installing/#do-i-need-to-install-pip) and download **get-pip.py**
 
 Download  [get-pip.py](https://bootstrap.pypa.io/get-pip.py), being careful to save it as a .py file rather than .txt. Then, run it from the command prompt:
 
 `python get-pip.py`
 
-You possibly need an administrator command prompt to do this. Follow  [Start a Command Prompt as an Administrator](http://technet.microsoft.com/en-us/library/cc947813(v=ws.10).aspx).
+You possibly need an administrator command prompt to do this. Follow
+[Start a Command Prompt as an Administrator](https://www.howtogeek.com/194041/how-to-open-the-command-prompt-as-administrator-in-windows-8.1/).
 
 ## Install a text editor
 
