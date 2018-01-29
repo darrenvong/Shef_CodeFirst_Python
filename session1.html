@@ -36,13 +36,13 @@
 				<section>
 					<h2> Session 1: Python basics </h2>
 					<p>
-						 Welcome to the autumn/winter courses
+						 Welcome to the spring/summer courses
 					</p>
-					<p class='author'> Tania Allard, PhD
+					<p class='author'> Nina Swanwick
 					<br>
-				 <a href="http://twitter.com/ixek" target="_blank">
+				 <a href="https://twitter.com/NinaSwanwick" target="_blank">
 					<i class="fa fa-twitter" aria-hidden="true">
-					</i> @ixek
+					</i> @NinaSwanwick
 				 </a>
  		 			</p>
 				</section>
@@ -104,6 +104,18 @@
 				</section>
 
 				<section>
+					<p>
+						Another thing to note: Running Python in interactive mode
+						is mainly for <strong>experimenting</strong> with how some code works.
+					</p>
+					<p class="fragment">
+						So, to run any Python code we will be writing in files for the rest of
+						the course, make sure your terminal is <strong>not</strong> in this mode!
+					</p>
+					<p class="fragment"> Otherwise your code won't work!</p>
+				</section>
+
+				<section>
 					<h3>What will we be doing during this course?</h3>
 					<img src="./assets/webapp.png" alt="web app">
 					<img src="./assets/html.png" alt="html logo">
@@ -139,8 +151,8 @@
 					<accent-text> String: collection of characters denoted by " "
 					</accent-text>
 					```python
-					print('Bob'*3)
-					print('Bob'+3)
+					print('Bob' * 3)
+					print('Bob' + 3)
 					print('hello'.upper())
 					print('GOODBYE'.lower())
 					print("the lord of the rings".title())
@@ -160,6 +172,52 @@
 					When attached to a 'string' they tell Python to do some processing
 				 on the strings
 			 </p>
+				</section>
+
+				<section>
+					<h2><i class="fa fa-calculator"></i>
+						Numbers and Maths
+					</h2>
+					<p>
+						Every good programming language allows you to do some maths.
+						Python is no different!
+					</p>
+					<div data-markdown>
+						```python
+						print(2 + 2)
+						print(8 * 9)
+						print(5 / 2)
+						print(5 // 2)
+						print(5 % 2)
+						```
+						Try it yourself by adding the above to **hello.py** and run it!
+					</div>
+				</section>
+
+				<section>
+					The symbols between the numbers are called <strong>operators</strong>.
+					<p class="fragment">
+						<code>+</code>, <code>-</code> and <code>*</code> (multiplication) works as we
+						know it from maths.
+					</p>
+					<p class="fragment">
+						There are two types of division in Python: normal division with <code>/</code>,
+						but <strong>integer division</strong> with <code>//</code>.
+					</p>
+					<p class="fragment">
+						In our example, integer division gives the <strong>largest whole number</strong>
+						of times 2 goes into 5, which is 2.
+					</p>
+				</section>
+
+				<section>
+					The other related operator from the division operator <code>//</code> is
+					the <code>%</code> modulus operator.
+					<p class="fragment">It returns what's left over from an integer division.</p>
+					<p class="fragment">
+						In our example, <code>5 % 2 = 1 </code>since 5 divides fully into 2 twice,
+						leaving 1 over.
+					</p>
 				</section>
 
 				<section>
@@ -207,9 +265,9 @@
 					You can write comments for you or others using a `#` in Python
 					meaning that everything after this symbol will be ignored
 					```python
-					greeting ="Hello World!"        # This creates a variable
+					greeting = "Hello World!"        # This creates a variable
 					greeting.upper()                # This converts the string to uppercase
-					print (greeting*3)              # This prints the string 3 times
+					print(greeting * 3)              # This prints the string 3 times
 					```
 				</section>
 
