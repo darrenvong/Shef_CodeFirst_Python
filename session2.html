@@ -19,6 +19,9 @@
 
 		<!-- Font awesome -->
 		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+		
+		<!-- Session specific CSS -->
+		<link rel="stylesheet" href="css/session2.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -142,7 +145,7 @@
 					<p>We can use the <strong>input</strong> method to get a user's name.</p>
 				</section>
 
-				<section>
+				<section id="user-input">
 						Open your <strong>session2.py</strong> file and replace the contents with the following
 						<div data-markdown>
 						```python
@@ -155,6 +158,10 @@
 						python session2.py
 						```
 						</div>
+						<hr>
+						<a href="#/extra-exercises">
+							<small>Finished already? Here's some additional exercises for you to do!</small>
+						</a>
 				</section>
 
 				<section>
@@ -231,7 +238,7 @@
 					<p>This is a function with zero arguments (the brackets are empty in the definition)</p>
 				</section>
 
-				<section>
+				<section id="function-args">
 					<br>
 					Edit <strong>more_arguments.py</strong> and replace the old function with the following
 					<div data-markdown>
@@ -247,6 +254,10 @@
 					</div>
 					<p>This is a function with two arguments</p>
 					<p>Arguments are named variables only available in the function</p>
+					<hr>
+					<a href="#/function-exercises">
+						<small>Finished already? Here's some additional exercises for you to do!</small>
+					</a>
 				</section>
 
 				<section>
@@ -269,7 +280,7 @@
 					print (returned_value)
 					```
 					</div>
-					<p><strong>Extra challenge</strong> change the function to return the result of adding two arguments together</p>
+					<p><strong>Extra challenge</strong>: change the function to return the result of adding two arguments together</p>
 				</section>
 
 				<section>
@@ -353,6 +364,41 @@
 
 				<section>
 					<h2>The end!</h2>
+				</section>
+
+				<section id="extra-exercises">
+					<h2>User input: bonus exercises</h2>
+					<ol>
+						<li>Extend the script by adapting the code from Exercise 11 of the LPTHW e-book.</li>
+						<li>
+							Simplify the script by not using <code>print(...)</code> to show the questions
+							before each input.
+						</li>
+						<li>
+							* Assuming the user will only type in numbers (e.g. 6'2" will be entered as 62),
+							print out the sum of the person's age, weight and height. E.g. If the person is 21, weigh
+							150 lbs and is 6'2" tall, then the sum is <strong>21 + 150 + 62 = 233</strong>.
+						</li>
+					</ol>
+					<hr>
+					<a href="#/user-input"><small>Go back</small></a>
+				</section>
+
+				<section id="function-exercises">
+					<h2>Functions: bonus exercises</h2>
+					<ol>
+						<li>
+							What happens if you try to call the
+							<code>add_two_numbers_from_args</code> function without providing 2 arguments?
+						</li>
+						<li>* How might you amend the function such that it is <strong>optional</strong> to call
+							<code>add_two_numbers_from_args</code> with 2 arguments? Do a Google search or ask
+							an instructor if you're stuck on this!
+						</li>
+						<li>If you haven't already, do Exercise 18, 19 and 21 in the LPTHW e-book.</li>
+					</ol>
+					<hr>
+					<a href="#/function-args"><small>Go back</small></a>
 				</section>
 
 			</div>
