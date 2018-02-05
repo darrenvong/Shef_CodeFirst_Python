@@ -1,0 +1,19 @@
+#req-url {
+  position: absolute;
+  top: 10px;
+  left: 40%;
+  font-size: 20px;
+  color: #8E24AA;
+}
+
+#res {
+  position: absolute;
+  color: #8E24AA;
+  font-size: 18px;
+  bottom: 38%;
+  left: 42.5%;
+}
+
+#git-hands-on p {
+  font-size: 90%;
+}
