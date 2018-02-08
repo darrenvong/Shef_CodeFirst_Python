@@ -32,6 +32,7 @@
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
+    border-radius: 50%;
     object-fit: cover;
     overflow: hidden;
   }
@@ -176,8 +177,8 @@ SyntaxError: invalid syntax
                       at the same time.
                     </p>
                     <p>
-                      To fix that, type <code>exit()</code> to get out of interactive mode first before
-                      trying to run your Python file again.
+                      To fix that, type <code>exit()</code> or <code>quit()</code> to get out of
+                      interactive mode first before trying to run your Python file again.
                     </p>
                   </td>
                 </tr>
@@ -186,8 +187,8 @@ SyntaxError: invalid syntax
                     How do I know I am running Python in interactive mode?
                   </td>
                   <td>
-                    If you see <code>>></code> at the beginning of the current line in your
-                    terminal, you are in interactive mode.
+                    If you see <code>>></code> or <code>In [x]:</code> (for IPython) at the beginning of the
+                    current line in your terminal, you are in interactive mode.
                   </td>
                 </tr>
                 <tr>
@@ -216,6 +217,8 @@ SyntaxError: invalid syntax
                     Try closing git bash first, open it again then run Python. If that
                     doesn't fix the issue, search for <strong>cmd</strong> or
                     <strong>Powershell</strong>, open that and run Python in it instead.
+                    If none of that works, speak to an instructor to make sure the python
+                    executable is properly registered to be used directly in the command line.
                   </td>
                 </tr>
                 <tr>
