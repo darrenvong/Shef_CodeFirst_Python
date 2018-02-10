@@ -14,6 +14,7 @@
   left: 42.5%;
 }
 
-#git-hands-on p {
+#git-hands-on p,
+#flask-explain p {
   font-size: 90%;
 }

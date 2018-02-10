@@ -78,8 +78,8 @@
               A function may optionally <strong>return</strong> some information
             </li>
             <li>
-              This could be <strong>some value</strong> from a result of a calculation, or
-              it can be <strong>another function</strong>!
+              This could be <strong>some value</strong>, or some results directly
+              from <strong>another function</strong>!
             </li>
           </ul>
         </section>
@@ -332,35 +332,18 @@
             <li class="fragment">
               Users can then access our website in their browser!
             </li>
-          </ul>
-        </section>
-        
-        <section>
-          <ul>
-            <li>Whenever a user type in the URL to go on our website, it goes through the exact journey
-              shown on the diagram earlier... with one exception
+            <li class="fragment">
+              Instead of returning some HTML <strong>directly</strong>, Flask actually
+              builds up the <strong>response</strong> HTML using something called
+              <strong>a template engine</strong>.
             </li>
             <li class="fragment">
-              A diagram will hopefully clear this up...
+            This allows HTML to be generated
+            <strong>dynamically<i class="fa fa-rocket" aria-hidden="true"></i></strong>
+            rather than having to write them all <strong>in full</strong>
+            in advance (more details next session)! 
             </li>
           </ul>
-        </section>
-        
-        <section>
-          <figure>
-            <img src="assets/webapp.png" alt="Flask app">
-          </figure>
-        </section>
-        
-        <section>
-          <p>
-            The only <strong>key difference</strong> in this diagram from our previous one is that rather than returning the HTML
-            <strong>directly</strong>, Flask runs the HTML through a filter called <strong>a template engine</strong> (Jinja2).
-          </p>
-          <p class="fragment">
-            This allows HTML to be generated <strong>dynamically <i class="fa fa-rocket" aria-hidden="true"></i></strong>
-            rather than having to write them all <strong>in full</strong> in advance (more details next session)! 
-          </p>
         </section>
 
         <section id="git-hands-on">
@@ -491,7 +474,7 @@
           </p>
         </section>
 
-        <section>
+        <section id="flask-explain">
           <p>
             The <code>@app.route("/")</code> line (which has to be above a function definition)
             <strong><i class="fa fa-rocket" aria-hidden="true"></i></strong> a normal Python
@@ -503,6 +486,76 @@
             controllable by Flask each time we type <code>python app.py</code> in the
             terminal. 
           </p>
+          <p class="fragment">
+            The <code>debug=True</code> part in the function call automatically restarts
+            the program each time we made changes to our Python code, so we don't have to!
+          </p>
+        </section>
+
+        <section>
+          <h3>What happens if...</h3>
+          <p>... we visit some random URL, like <code>localhost:5000/qwerty</code>?</p>
+          <img class="fragment" src="assets/404.png" alt="Web page not found">
+        </section>
+
+        <section>
+          <p>We got a <strong>Not Found</strong> error as we haven't specified in our
+          code on how to respond to <code>localhost:5000/qwerty</code>.</p>
+          <p class="fragment">
+            But we haven't written in <code>localhost:5000</code> anywhere in our code,
+            so why did that work?
+          </p>
+          <p class="fragment">
+            That's because Flask uses <strong>relative URLs</strong>, which means the <code>"/"</code>
+            in <code>app.route("/")</code> translates to <code>localhost:5000/</code>!
+          </p>
+        </section>
+
+        <section>
+          <h3>Routing</h3>
+          <p>
+            Flask uses relative URL so our app will <strong>work in a consistent way</strong>, no matter
+            where it's hosted.
+          </p>
+          <p class="fragment">
+            To find out the relative URL of a web address, look out for the value <strong>after the
+            first single slash</strong> including the slash itself.
+          </p>
+        </section>
+
+        <section>
+          <p>
+            For example, the relative URL <code>localhost:5000/qwerty</code> is
+            <code>/qwerty</code>.
+          </p>
+          <p class="fragment">
+            To stop Flask returning the <strong>Not Found</strong> error we saw earlier,
+            we need a function with <code>@app.route("/qwerty")</code>
+            above it so Flask knows how to respond when a user visits that particular URL.
+          </p>
+        </section>
+
+        <section>
+          <h3><i class="fa fa-code" aria-hidden="true"></i>
+            Returning <span style="margin-right: 10px;">HTML</span>
+            pages
+          </h3>
+          <p>
+            So far, we've been returning simple text as response to the browser
+            when we visit our Flask app.
+          </p>
+          <p class="fragment">
+            But that's <strong>not very good</strong> when we want to display complex web pages.
+          </p>
+          <p class="fragment">
+            We need a way to return the pages in HTML instead, as you know them from
+            the beginner's course!
+          </p>
+        </section>
+
+        <section>
+          <!--TO-DO: basic template stuff, including how to hook in CSS/JS and
+            that'll do for session 3! Phew! -->
         </section>
         
         <section>
