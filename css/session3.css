@@ -15,6 +15,13 @@
 }
 
 #git-hands-on p,
-#flask-explain p {
+#flask-explain p,
+#bonus-exercises li,
+#bonus-exercises-2 p {
   font-size: 90%;
+}
+
+#html-template pre,
+#css-include pre {
+  width: 100%;
 }
