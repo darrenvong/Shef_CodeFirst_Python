@@ -627,7 +627,7 @@
           <strong>templates/index.html</strong>, add in the following line:
           <div data-markdown>
             ```html
-            &lt;link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}"&gt;
+            &lt;link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}"&gt;
             ```
           </div>
           <p class="fragment">
@@ -649,17 +649,20 @@
 
         <section id="bonus-exercises">
           <h3>Bonus exercises</h3>
+          <small>If you're stuck on any of these exercises,
+            <a href="http://flask.pocoo.org/docs/0.12/" target="_blank">this page</a>
+            is likely to contain the answer you're looking for!
+          </small>
           <ol>
             <li>
-              Write a function, then put <code>app.route(...)</code> above it using
-              an appropriate pattern in the <code>...</code> part, so that when you visit
-              <code>localhost:5000/whatever</code> with <strong>any value</strong> in the "whatever" part,
-              it won't lead to an error page.
+              Write a function, then bind the function with an appropriate routing pattern,
+              so that when you visit <code>localhost:5000/whatever</code> with <strong>any value</strong>
+              in the "whatever" part, it won't lead to an error page.
             </li>
             <li>
-              Write a function, then put <code>app.route(...)</code> above it using an appropriate
-              pattern in the <code>...</code> part, so that when you visit
-              <code>localhost:5000/1/2</code>, it returns 3 (the sum of the two numbers after the first slash).
+              Write a function, then bind the function with an appropriate routing pattern,
+              so that when you visit <code>localhost:5000/1/2</code>, you can <strong>easily capture</strong>
+              the sum of the two numbers after the first slash and return it onto the page.
             </li>
           </ol>
           <hr>
@@ -672,14 +675,30 @@
         <section id="bonus-exercises-2">
           <h3>Bonus exercises</h3>
           <p>
-            3. ** Modify the function in exercise 2, and adapting the simple HTML page we made earlier,
+            3.* Modify the function in exercise 2, and adapting the simple HTML page we made earlier,
             return the answer with the HTML instead.
           </p>
           <p>
-            4. Create another HTML page called <strong>error.html</strong> inside the templates folder.
+            4. Modify the function again so that it returns "Not a number" when you visit URLs with
+            non-numerical values after the first slash, like <code>localhost:5000/p/2</code>
+          </p>
+          <hr>
+          <a href="#/bonus-exercises-3"><small>More exercises</small></a>
+          <a href="#/completed-first-app">
+            <small>Go back</small>
+          </a>
+        </section>
+        
+        <section id="bonus-exercises-3">
+          <p>
+            5. Create another HTML page called <strong>error.html</strong> inside the templates folder.
             Then, write a function with <code>@app.errorhandler(404)</code> above it so that when you visit
             an unknown URL, your <strong>error.html</strong> is shown rather than Flask's
             <strong>Not Found</strong> error page.
+          </p>
+          <p>
+            6.** If you've done the Beginners course, adapt the website you made for your competition
+            such that the HTML, CSS and JavaScript files would load in correctly with Flask!
           </p>
           <hr>
           <a href="#/completed-first-app">

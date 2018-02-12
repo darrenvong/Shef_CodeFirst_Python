@@ -14,10 +14,18 @@
   left: 42.5%;
 }
 
+#bonus-exercises li {
+  font-size: 85%;
+}
+
+#bonus-exercises ol {
+  margin-top: 15px;
+}
+
 #git-hands-on p,
 #flask-explain p,
-#bonus-exercises li,
-#bonus-exercises-2 p {
+#bonus-exercises-2 p,
+#bonus-exercises-3 p {
   font-size: 90%;
 }
 
