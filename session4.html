@@ -1,362 +1,334 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title> CFG session 4</title>
+    <title> CFG session 4</title>
 
-		<link rel="stylesheet" href="reveal.js/css/reveal.css">
-		<link rel="stylesheet" href="reveal.js/css/theme/white.css">
-		<!-- or you can use the dark theme
-		rel="stylesheet" href="reveal.js/css/theme/black.css"> -->
+    <link rel="stylesheet" href="reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="reveal.js/css/theme/white.css">
+    <!-- or you can use the dark theme
+    rel="stylesheet" href="reveal.js/css/theme/black.css"> -->
 
-		<!-- Customised theme  -->
-		<link rel="stylesheet" href="reveal.js/css/theme/custom.css">
+    <!-- Customised theme  -->
+    <link rel="stylesheet" href="reveal.js/css/theme/custom.css">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="reveal.js/lib/css/github-gist.css">
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="reveal.js/lib/css/github-gist.css">
 
-		<!-- Font awesome -->
-		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" rel="stylesheet" media="all">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
 
-		<style>
-			.gist {transform: scale(0.9) translateY(-8%);}
-			#req-url {position: absolute;top: 10px;left: 40%;font-size: 20px;color: #8E24AA;}
-			#res {position: absolute;color: #8E24AA;font-size: 18px;bottom: 38%;left: 42.5%;}
-			#static-problem-list li {font-size:90%;}
-		</style>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides logo">
-				<section>
-					<h2> Session 4: Flask - using Python & HTML
-						<span style="margin-left: 10px">together</span> (Part 2)
-					</h2>
-					<p>Linking together the back-end with the front-end</p>
-					<p class='author'> Darren Vong
-					<br>
-				 <a href="http://twitter.com/mrdarrenv" target="_blank">
-					<i class="fa fa-twitter" aria-hidden="true">
-					</i> @mrdarrenv
-				 </a>
-						</p>
-				</section>
+    <style>
+      .gist {transform: scale(0.9) translateY(-8%);}
+      #req-url {position: absolute;top: 10px;left: 40%;font-size: 20px;color: #8E24AA;}
+      #res {position: absolute;color: #8E24AA;font-size: 18px;bottom: 38%;left: 42.5%;}
+      #static-problem-list li {font-size:90%;}
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides logo">
+        <section>
+          <h2> Session 4: Flask - using Python & HTML
+            <span style="margin-left: 10px">together</span> (Part 2)
+          </h2>
+          <p>Linking together the back-end with the front-end</p>
+          <p class='author'> Darren Vong
+          <br>
+         <a href="http://twitter.com/mrdarrenv" target="_blank">
+          <i class="fa fa-twitter" aria-hidden="true">
+          </i> @mrdarrenv
+         </a>
+            </p>
+        </section>
 
-				<section>
-					<h2> Where can I find the material? </h2>
-					You can find all the slides, links to the curriculum, and
-					to the GitHub repository at:
-					<br>
-					<br>
-					<p class='fragment grow'>
-						<a href="https://darrenvong.github.io/shefcodefirst-python/">
-							https://darrenvong.github.io/shefcodefirst-python/</a></p>
-				</section>
+        <section>
+          <h2> Where can I find the material? </h2>
+          You can find all the slides, links to the curriculum, and
+          to the GitHub repository at:
+          <br>
+          <br>
+          <p class='fragment grow'>
+            <a href="https://darrenvong.github.io/shefcodefirst-python/">
+              https://darrenvong.github.io/shefcodefirst-python/</a></p>
+        </section>
 
-				<section>
-					<h3><i class="fa fa-reply" aria-hidden="true"></i>
-						Recap: Facebook Flask Challenge <i class="fa fa-flask" aria-hidden="true"></i>
-					</h3>
-				</section>
+        <section>
+          <h3> <i class="fa fa-reply" aria-hidden="true"></i>
+            Recap: What happens when we visit a web page?
+          </h3>
+        </section>
 
-				<section>
-					<script src="https://gist.github.com/darrenvong/7a14fb6012c9c5412fdbc47c2af68584.js"></script>
-				</section>
+        <section>
+          <figure style="position: relative;">
+            <img src="assets/req_res_cycle.png" alt="The Request-Response Cycle">
+            <strong>
+              <p id="req-url">https://pawlean.com</p>
+            </strong>
+            <div id="res">
+              <strong>
+                <p style="margin:0;">&lt;!DOCTYPE html&gt;</p>
+              </strong>
+              <strong>
+                <p style="margin:0;">&lt;html&gt;...&lt;/html&gt;</p>
+              </strong>
+            </div>
+          </figure>
+        </section>
 
-				<section>
-					<p>
-						The <strong>two bugs</strong> in the application highlight some commonly
-						made mistakes:
-					</p>
-					<p class="fragment">
-						<i class="fa fa-times" aria-hidden="true" style="color:#ef3a34;"></i>
-						1. <strong>Don't</strong> name your Python file <strong>flask.py</strong>, or
-						any name that's identical to the library you are going to import, as your copy
-						of the code will <em><strong>hide</strong></em> the actual flask library you
-						want to import!
-					</p>
-				</section>
+        <section>
+          <ul>
+            <li>
+              Typing in the URL of the page sends <strong>a request</strong> to the server
+              running the website.
+            </li>
+            <li>
+              Using the information in the request with the URL, the server generates the
+              right HTML page as <strong>a response</strong> back to our browser.
+            </li>
+            <li>
+              Our browser processes the HTML response, along with any included CSS and
+              JavaScript, then renders it out nicely for us to see in our browser.
+            </li>
+          </ul>
+        </section>
 
-				<section>
-					<p>
-						<i class="fa fa-times" aria-hidden="true" style="color:#ef3a34;"></i>
-						2. The <strong><em>app.run(debug=True)</em></strong> line is
-						<strong>wrongly indented</strong>: unlike other languages which
-						mark a block of code with brackets, Python relies on the
-						<strong>indentations</strong> to do the same job, so pay attention to
-						them in your code!
-					</p>
-				</section>
+        <section>
+          <h3><i class="fa fa-reply" aria-hidden="true"></i>
+            Recap: Flask <i class="fa fa-flask" aria-hidden="true"></i>
+          </h3>
+          <ul>
+            <li>
+              A <strong>framework</strong> which handles the complexity of
+              <strong>requests</strong> & <strong>responses</strong>
+            </li>
+            <li class="fragment">
+              This allows us to focus on the more <strong>fun stuff</strong> like
+              designing and writing our application.
+            </li>
+          </ul>
+        </section>
+        
+        <section>
+          <ul>
+            <li>
+              Recall from the last session that Flask uses templates, and they are run
+              through a template engine to generate the full HTML page <strong>dynamically</strong>.
+            </li>
+            <li class="fragment">
+              The full HTML page are then returned as a response back to our browser.
+            </li>
+          </ul>
+        </section>
+        
+        <!-- TO-DO: Move the routing section to session 3 in between that session's hands-on part -->
+        <section>
+          <h3>
+            <i class="fa fa-reply" aria-hidden="true"></i>
+            Recap: Routing
+          </h3>
+          <p>
+            The <strong>app.route(...)</strong> part <strong>binds</strong>
+            the URL pattern specified to the standard Python
+            function which will then handle the <strong>requests</strong> from users.
+          </p>
+          <p class="fragment">
+            Flask uses <strong>relative URLs</strong> - this is usually the string after the
+            <strong>first single slash</strong>.
+          </p>
+        </section>
 
-				<section>
-					<h3> <i class="fa fa-reply" aria-hidden="true"></i>
-						Recap: What happens when we visit a web page?
-					</h3>
-				</section>
+        <section>
+          <h3>
+            <i class="fa fa-reply" aria-hidden="true"></i>
+            Recap: Routing (cont.)
+          </h3>
+          <p>
+            Relative URLs are used so that our application <strong>works in a consistent way</strong>,
+            regardless of where we host it.
+          </p>
+          <p class="fragment">
+            In our case where we have been developing locally, <strong>/hello</strong> is
+            a relative URL with respect to the host <strong>localhost:5000</strong>, and so
+            can be accessed by visiting <strong>localhost:5000/hello</strong>
+          </p>
+        </section>
 
-				<section>
-					<figure style="position: relative;">
-						<img src="assets/req_res_cycle.png" alt="The Request-Response Cycle">
-						<strong>
-							<p id="req-url">https://pawlean.com</p>
-						</strong>
-						<div id="res">
-							<strong>
-								<p style="margin:0;">&lt;!DOCTYPE html&gt;</p>
-							</strong>
-							<strong>
-								<p style="margin:0;">&lt;html&gt;...&lt;/html&gt;</p>
-							</strong>
-						</div>
-					</figure>
-				</section>
+        <section>
+          <h3>And now...</h3>
+        </section>
 
-				<section>
-					<ul>
-						<li>
-							Typing in the URL of the page sends <strong>a request</strong> to the server
-							running the website.
-						</li>
-						<li>
-							Using the information in the request with the URL, the server generates the
-							right HTML page as <strong>a response</strong> back to our browser.
-						</li>
-						<li>
-							Our browser processes the HTML response, along with any included CSS and
-							JavaScript, then renders it out nicely for us to see in our browser.
-						</li>
-					</ul>
-				</section>
+        <section>
+          <h3><i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+            What is a template engine? Why do we use it?
+          </h3>
+          <ul>
+            <li>
+              A template engine is a tool which allows us to write our HTML pages in
+              smaller, re-usable parts called <strong>templates</strong>.
+            </li>
+            <li class="fragment">
+              To understand why we use a template engine, we need to take a quick look
+              at how web pages were made <strong>before template engines existed</strong>.
+            </li>
+          </ul>
+        </section>
 
-				<section>
-					<h3><i class="fa fa-reply" aria-hidden="true"></i>
-						Recap: Flask <i class="fa fa-flask" aria-hidden="true"></i>
-					</h3>
-					<ul>
-						<li>
-							A<strong>framework</strong> which handles the complexity of
-							<strong>requests</strong> & <strong>responses</strong>
-						</li>
-						<li class="fragment">
-							This allows us to focus on the more <strong>fun stuff</strong> like
-							designing and writing our application.
-						</li>
-					</ul>
-				</section>
-				
-				<section>
-					<ul>
-						<li>
-							Recall from the last session that Flask uses templates, and they are run
-							through a template engine to generate the full HTML page <strong>dynamically</strong>.
-						</li>
-						<li class="fragment">
-							The full HTML page are then returned as a response back to our browser.
-						</li>
-					</ul>
-				</section>
-				
-				<!-- TO-DO: Move the routing section to session 3 in between that session's hands-on part -->
-				<section>
-					<h3>
-						<i class="fa fa-reply" aria-hidden="true"></i>
-						Recap: Routing
-					</h3>
-					<p>
-						Not explicitly mentioned in the last session, but the <strong>app.route(...)</strong>
-						"magic function" <strong>binds</strong> the URL specified to the standard Python
-						function which will then handle the <strong>requests</strong> from users.
-					</p>
-					<p class="fragment">
-						Flask uses <strong>relative URLs</strong> - this is usually the string after the
-						first single slash.
-					</p>
-				</section>
+        <section>
+          <p>
+            Without templates, web pages have to be served as <strong>static HTML files</strong>
+            when the user visits the page. These have to be written up <strong>in full</strong>
+            before a user visit our site.
+          </p>
+          <p class="fragment">
+            This is essentially what you did if you completed the Beginners course!
+          </p>
+        </section>
 
-				<section>
-					<h3>
-						<i class="fa fa-reply" aria-hidden="true"></i>
-						Recap: Routing (cont.)
-					</h3>
-					<p>
-						Relative URLs are used so that our application <strong>works in a consistent way</strong>,
-						regardless of where we host it.
-					</p>
-					<p class="fragment">
-						In our case where we have been developing locally, <strong>/hello</strong> is
-						a relative URL with respect to the host <strong>localhost:5000</strong>, and so
-						can be accessed by visiting <strong>localhost:5000/hello</strong>
-					</p>
-				</section>
+        <section>
+          <h3>
+            Problems with static HTML <span style="margin-left:10px;">pages</span>...
+          </h3>
+          <ul>
+            <li>
+              Re-writing (or lots of copy and pasting) common HTML parts each time we make
+              a new page gets <strong>tedious</strong>
+            </li>
+            <li class="fragment">Repetition of code is (generally) a bad idea.</li>
+          </ul>
+        </section>
 
-				<section>
-					<h3>And now...</h3>
-				</section>
+        <section>
+          <h3>
+            Problems with static HTML <span style="margin-left:10px;">pages</span>... (cont.)
+          </h3>
+          <ul id="static-problem-list">
+            <li>
+              Static pages can't be adapted (easily) to cases where the content is different
+              depending on, say, the user visiting the page.
+            </li>
+            <li class="fragment">
+              This is what we'd referred to as <strong>dynamic pages</strong>, where we only know
+              how to lay out & style the page but not all contents up front.
+            </li>
+            <li class="fragment">
+              Facebook and Twitter are great examples: the feed is different for everyone visiting, as it
+              depends on <strong>many variable factors</strong> such as who they follow/are friends with etc.
+            </li>
+          </ul>
+        </section>
+        
+        <section>
+          <h3>Solution: write and use HTML <span style="margin-left:10px;">templates!</span></h3>
+        </section>
+        
+        <section>
+          <h3>How do templates solve our problems?</h3>
+          <p>
+            When writing templates, we only need to write in the HTML parts that
+            <strong>we know for definite</strong>.
+          </p>
+          <p class="fragment">
+            For parts we don't know, the HTML is generated with some logics using
+            Python-like code with data from a user's <strong>request</strong> when they
+            visit our website.
+          </p>
+          <p class="fragment">Let's see how we can do this in <strong>Flask</strong>!</p>
+        </section>
 
-				<section>
-					<h3><i class="fa fa-lightbulb-o" aria-hidden="true"></i>
-						What is a template engine? Why do we use it?
-					</h3>
-					<ul>
-						<li>
-							A template engine is a tool which allows us to write our HTML pages in
-							smaller, re-usable parts called <strong>templates</strong>.
-						</li>
-						<li class="fragment">
-							To understand why we use a template engine, we need to take a quick look
-							at how web pages were made <strong>before template engines existed</strong>.
-						</li>
-					</ul>
-				</section>
+        <section>
+          <h3>
+            <i class="fa fa-cogs" aria-hidden="true"></i>
+            Hands on: a Flask program using templates
+          </h3>
+        </section>
 
-				<section>
-					<p>
-						Without templates, web pages have to be served as <strong>static HTML files</strong>
-						when the user visits the page. These have to be written up <strong>in full</strong>
-						before a user visit our site.
-					</p>
-					<p class="fragment">
-						This is essentially what you did if you completed the Beginners course!
-					</p>
-				</section>
+        <!-- TO-DO: breaking up templates to headers and footers -->
+        <!-- TO-DO: Some basic Jinja2 syntax for printing results onto the page -->
+        <!-- TO-DO: Passing data from Python to template for use (mainly outputting it) -->
 
-				<section>
-					<h3>
-						Problems with static HTML <span style="margin-left:10px;">pages</span>...
-					</h3>
-					<ul>
-						<li>
-							Re-writing (or lots of copy and pasting) common HTML parts each time we make
-							a new page gets <strong>tedious</strong>
-						</li>
-						<li class="fragment">Repetition of code is (generally) a bad idea.</li>
-					</ul>
-				</section>
+        <section>
+          <h3>More about requests...</h3>
+          <p>
+            Hopefully by now, you'd have noticed that the word <strong>request</strong>
+            has been mentioned repeatedly.
+          </p>
+          <p class="fragment">
+            There's just <strong>one more</strong> little detail that we need to
+            understand about <strong>requests</strong> before we can move forward... the
+            <strong>request type</strong>!
+          </p>
+        </section>
 
-				<section>
-					<h3>
-						Problems with static HTML <span style="margin-left:10px;">pages</span>... (cont.)
-					</h3>
-					<ul id="static-problem-list">
-						<li>
-							Static pages can't be adapted (easily) to cases where the content is different
-							depending on, say, the user visiting the page.
-						</li>
-						<li class="fragment">
-							This is what we'd referred to as <strong>dynamic pages</strong>, where we only know
-							how to lay out & style the page but not all contents up front.
-						</li>
-						<li class="fragment">
-							Facebook and Twitter are great examples: the feed is different for everyone visiting, as it
-							depends on <strong>many variable factors</strong> such as who they follow/are friends with etc.
-						</li>
-					</ul>
-				</section>
-				
-				<section>
-					<h3>Solution: write and use HTML <span style="margin-left:10px;">templates!</span></h3>
-				</section>
-				
-				<section>
-					<h3>How do templates solve our problems?</h3>
-					<p>
-						When writing templates, we only need to write in the HTML parts that
-						<strong>we know for definite</strong>.
-					</p>
-					<p class="fragment">
-						For parts we don't know, the HTML is generated with some logics using
-						Python-like code with data from a user's <strong>request</strong> when they
-						visit our website.
-					</p>
-					<p class="fragment">Let's see how we can do this in <strong>Flask</strong>!</p>
-				</section>
+        <section>
+          <h3>More about requests...</h3>
+          <p>Earlier, we said:</p>
+          <p class="fragment">
+            "Typing in the URL of the page sends <strong>a request</strong> to the server
+            running the website."
+          </p>
+          <p class="fragment">
+            In fact, to be more precise, we are actually sending a <strong>GET request</strong>
+            to the server running the website.
+          </p>
+        </section>
 
-				<section>
-					<h3>
-						<i class="fa fa-cogs" aria-hidden="true"></i>
-						Hands on: a Flask program using templates
-					</h3>
-				</section>
+        <section>
+          <h3>The main problem with GET requests</h3>
+          <p>
+            If we want the user to send some extra data when they visit a page on our website,
+            the data are visible at the end of the URL.
+            This is all well and good <strong>if the data is not sensitive</strong>!
+          </p>
+          <p class="fragment">
+            To solve this problem, browsers allows data to be sent using a different kind of request
+            known as a <strong>POST request</strong>, which is only accessible on our server.
+          </p>
+        </section>
 
-				<section>
-					<h3>More about requests...</h3>
-					<p>
-						Hopefully by now, you'd have noticed that the word <strong>request</strong>
-						has been mentioned repeatedly.
-					</p>
-					<p class="fragment">
-						There's just <strong>one more</strong> little detail that we need to
-						understand about <strong>requests</strong> before we can move forward... the
-						<strong>request type</strong>!
-					</p>
-				</section>
+        <section>
+          <h3>
+            <i class="fa fa-cogs" aria-hidden="true"></i>
+            Hands on: handling POST requests in our Flask program
+          </h3>
+        </section>
 
-				<section>
-					<h3>More about requests...</h3>
-					<p>Earlier, we said:</p>
-					<p class="fragment">
-						"Typing in the URL of the page sends <strong>a request</strong> to the server
-						running the website."
-					</p>
-					<p class="fragment">
-						In fact, to be more precise, we are actually sending a <strong>GET request</strong>
-						to the server running the website.
-					</p>
-				</section>
+        <!-- TO-DO: Code snippets on creating a form in HTML -->
+        <!-- TO-DO: Modifying @app.route(...) so it can handle POST requests -->
+        
+        <section>
+          <h2>The end!</h2>
+        </section>
 
-				<section>
-					<h3>The main problem with GET requests</h3>
-					<p>
-						If we want the user to send some extra data when they visit a page on our website,
-						the data are visible at the end of the URL.
-						This is all well and good <strong>if the data is not sensitive</strong>!
-					</p>
-					<p class="fragment">
-						To solve this problem, browsers allows data to be sent using a different kind of request
-						known as a <strong>POST request</strong>, which is only accessible on our server.
-					</p>
-				</section>
+      </div>
+    </div>
 
-				<section>
-					<h3>
-						<i class="fa fa-cogs" aria-hidden="true"></i>
-						Hands on: handling POST requests in our Flask program
-					</h3>
-				</section>
-				
-				<section>
-					<h2>The end!</h2>
-				</section>
+    <script src="reveal.js/lib/js/head.min.js"></script>
+    <script src="reveal.js/js/reveal.js"></script>
 
-			</div>
-		</div>
-
-		<script src="reveal.js/lib/js/head.min.js"></script>
-		<script src="reveal.js/js/reveal.js"></script>
-
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'reveal.js/plugin/markdown/marked.js' },
-					{ src: 'reveal.js/plugin/markdown/markdown.js' },
-					{ src: 'reveal.js/plugin/notes/notes.js', async: true },
-					{ src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
-	</body>
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        dependencies: [
+          { src: 'reveal.js/plugin/markdown/marked.js' },
+          { src: 'reveal.js/plugin/markdown/markdown.js' },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true },
+          { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+  </body>
 </html>
