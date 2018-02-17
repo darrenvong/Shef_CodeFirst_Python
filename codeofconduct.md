@@ -25,7 +25,7 @@ Our main aim is not only to _teach individuals how to code_ but to **build a sup
 
 Hence all the instructors, attendees, helpers, ambassadors, and invited speakers have to adhere to this code of conduct.
 
-Behaviours violating this code of conduct will not be tolerated. If you experience behaviour that makes participation at the workshops not a safe and positive community experience for all please inform your lead instructors: Tania Allard and Darren Vong.
+Behaviours violating this code of conduct will not be tolerated. If you experience behaviour that makes participation at the workshops not a safe and positive community experience for all please inform your instructors (Darren, Nina) or ambassadors (Pauline, Lakshika).
 
 ---
 
