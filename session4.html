@@ -136,7 +136,6 @@
           </ul>
         </section>
         
-        <!-- TO-DO: Move the routing section to session 3 in between that session's hands-on part -->
         <section>
           <h3>
             <i class="fa fa-reply" aria-hidden="true"></i>
@@ -258,9 +257,152 @@
           </h3>
         </section>
 
-        <!-- TO-DO: breaking up templates to headers and footers -->
+        <section>
+          <p>
+            In <strong>templates/index.html</strong>, add the following HTML above
+            "Hello world!" so the <code>body</code> should look as follows:
+          </p>
+          <div data-markdown>
+            ```html
+            &lt;body&gt;
+              &lt;nav&gt;
+                &lt;ul&gt;
+                  &lt;li>Home&lt;/li&gt;
+                  &lt;li>About&lt;/li&gt;
+                  &lt;li>Contact&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/nav&gt;
+            
+              &lt;h1>Hello world!&lt;/h1&gt;
+            &lt;/body&gt;
+            ```
+          </div>
+        </section>
+
+        <section>
+          <p>Next, add in the following at the end of <strong>assets/app.css</strong>:</p>
+          <div data-markdown>
+            ```css
+            nav ul {
+              list-style: none;
+              font-family: Arial, sans-serif;
+              font-size: 20px;
+              text-align: center;
+            }
+
+            nav ul li {
+              display: inline;
+              margin-right: 20px;
+            }
+            ```
+          </div>
+        </section>
+
+        <section>
+          <p>
+            The bits of HTML and CSS we just added in give the page a <strong>navigation bar</strong>.
+          </p>
+          <p class="fragment">
+            This is so we have some visual feedback that our page still works
+            when we <strong>break up</strong> our HTML later (more in a moment!)
+          </p>
+        </section>
+
+        <section>
+          <h3>A multi-page app</h3>
+          <p>
+            So far, our app only has a single page. What if we want to add an <strong>About</strong>
+            page as mentioned on our (fictional) navigation bar?
+          </p>
+          <p class="fragment">
+            In the beginners course, it's likely that you'd make a <strong>new HTML file</strong>,
+            copy & paste what you had in <strong>index.html</strong> and adapt.
+          </p>
+          <p class="fragment">
+            But as mentioned earlier, this is <strong>tedious</strong> & <strong>error prone</strong>.
+          </p>
+        </section>
+
+        <section>
+          <p>
+            For example, you might forget to update a link on the nav bar <strong>across all pages</strong>
+            when you update the name of a file.
+          </p>
+          <p class="fragment">
+            We can avoid this problem if we <strong>break up</strong> our HTML templates!
+          </p>
+          <p class="fragment">
+            Common parts like <strong>nav bars</strong> at the top and <strong>footer</strong>
+            at the bottom of our HTML provide good breaking points.
+          </p>
+        </section>
+
+        <section>
+          <h3>
+            <i class="fa fa-cogs" aria-hidden="true"></i>
+            Hands on: Breaking up our HTML templates
+          </h3>
+        </section>
+
+        <section>
+          <p>
+            In the <strong>templates</strong> folder, create a new HTML file called
+            <strong>header.html</strong>. Then, cut out the following from <strong>index.html</strong>
+            and put it in <strong>header.html</strong>:
+          </p>
+          <div data-markdown>
+            ```html
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+              &lt;meta charset="UTF-8"&gt;
+              &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+              &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+              &lt;title>First Flask app&lt;/title&gt;
+              &lt;link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}"&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+              &lt;nav&gt;
+                &lt;ul&gt;
+                  &lt;li>Home&lt;/li&gt;
+                  &lt;li>About&lt;/li&gt;
+                  &lt;li>Contact&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/nav&gt;
+            ```
+          </div>
+        </section>
+
+        <section>
+          <p>
+            Go back to <strong>templates/index.html</strong> and add in the following near
+            the top (where we just cut out a big chunk of header HTML):
+          </p>
+          <div data-markdown>
+            ```django
+            {% include "header.html" %}
+            ```
+          </div>
+          <p>
+            Save that and browse to <code>localhost:5000</code>. If you've done this right,
+            you should see <strong>exactly the same page</strong> as before!
+          </p>
+          <hr>
+          <small>
+            We don't have a footer in this simple example. But if we do, we'd repeat the same
+            process for the footer and include it at the bottom of <strong>index.html</strong>.
+          </small>
+        </section>
+
         <!-- TO-DO: Some basic Jinja2 syntax for printing results onto the page -->
         <!-- TO-DO: Passing data from Python to template for use (mainly outputting it) -->
+        <!-- TO-DO: Bonus ex 1: Create the additional pages and correctly link them up -->
+        <!-- TO-DO: Bonus ex 2: Create separate pages such that there's a student page where
+        only students are printed out. -->
+        <!-- TO-DO: Bonus ex 3: Include fixed JSON weather data that can be read in and outputted
+        depending on page visited by user. Nice precursor to APIs! -->
 
         <section>
           <h3>More about requests...</h3>
