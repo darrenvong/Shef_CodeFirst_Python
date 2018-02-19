@@ -550,6 +550,12 @@
             That's because Flask uses <strong>relative URLs</strong>, which means the <code>"/"</code>
             in <code>app.route("/")</code> translates to <code>localhost:5000/</code>!
           </p>
+          <small class="fragment">
+            <hr>
+            If there's nothing after the first single slash, most browsers (confusingly!)
+            hide them by default. This means <code>localhost:5000</code> is the same as
+            <code>localhost:5000/</code>!
+          </small>
         </section>
 
         <section>
@@ -616,7 +622,7 @@
           </div>
           <p class="fragment">
             Save the file, go to <code>localhost:5000</code> again and you should see
-            a larger <strong>Hello world!</strong> coming from the HTML we made earlier!
+            a <strong>larger</strong> "Hello world!" coming from the HTML we made earlier!
           </p>
           <small class="fragment">
             <hr>
@@ -651,6 +657,7 @@
             h1 {
               font-family: Arial, sans-serif;
             }
+            
             body {
               background-color: pink;
             }
