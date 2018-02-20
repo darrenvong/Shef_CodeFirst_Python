@@ -35,12 +35,9 @@
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
 
-    <style>
-      .gist {transform: scale(0.9) translateY(-8%);}
-      #req-url {position: absolute;top: 10px;left: 40%;font-size: 20px;color: #8E24AA;}
-      #res {position: absolute;color: #8E24AA;font-size: 18px;bottom: 38%;left: 42.5%;}
-      #static-problem-list li {font-size:90%;}
-    </style>
+    <!-- Session specific CSS -->
+    <link rel="stylesheet" href="css/session4.css">
+
   </head>
   <body>
     <div class="reveal">
@@ -377,8 +374,9 @@
 
         <section>
           <p>
-            Go back to <strong>templates/index.html</strong> and add in the following near
-            the top (where we just cut out a big chunk of header HTML):
+            Since we just cut out the header HTML from <strong>templates/index.html</strong>,
+            we need to <strong>include </strong>it back right where we removed it so our page
+            will still display correctly: 
           </p>
           <div data-markdown>
             ```django
@@ -393,6 +391,118 @@
           <small>
             We don't have a footer in this simple example. But if we do, we'd repeat the same
             process for the footer and include it at the bottom of <strong>index.html</strong>.
+          </small>
+        </section>
+
+        <section>
+          <h3>Delving further into templates</h3>
+          <p>
+            Flask uses a template engine (Jinja2) to build up the <strong>response HTML</strong>.
+          </p>
+          <p class="fragment">
+            Jinja2 extends the power of normal HTML by allowing us to include logic writing
+            <strong>Python-like</strong> code.
+          </p>
+          <p class="fragment">
+            This is super handy for cases where you have some data that will be laid out using
+            <strong>the same</strong> HTML markup (e.g. items in a list).
+          </p>
+        </section>
+
+        <section id="jinja2-syntax">
+          <h3><i class="fa fa-code"></i>
+            Templates syntax: the basics
+          </h3>
+          <p>
+            To include any Python statements (<strong>if</strong>, <strong>for loops</strong> etc),
+            enclose it with a pair of <code>{%  %}</code> as follows:
+          </p>
+          <div data-markdown>
+            ```django
+            {% if age > 18 %}
+              &lt;p&gt;Maybe you can drink!&lt;/p&gt;
+            {% else %}
+              &lt;p&gt;Naughty! You're too young to drink!&lt;/p&gt;
+            {% endif %}
+            ```
+          </div>
+          <p class="fragment">
+            Note that we have to put <code>endif</code> to mark the end of an if-statement,
+            since indentation is <strong>not</strong> taken into account.
+          </p>
+        </section>
+
+        <section>
+          <h3><i class="fa fa-code"></i>
+            Templates syntax: the basics
+          </h3>
+          <p>
+            To <strong>output</strong> the value (most likely be a string or some number) of a variable,
+            enclose it with a pair of <code>{{ }}</code> as shown below:
+          </p>
+          <div data-markdown>
+            ```django
+            &lt;h2&gt;{{ name }}&lt;/h2&gt;
+
+            &lt;!-- If name has the value "Darren", the above
+            will be converted to the following by Jinja2: --&gt;
+            &lt;h2&gt;Darren&lt;/h2&gt;
+            ```
+          </div>
+        </section>
+
+        <section>
+          <p>
+            Outputting value is not limited to variables only. You can also output
+            the result of function calls or data access expression from a list like so:
+          </p>
+          <div data-markdown>
+            ```django
+            &lt;!-- "DARREN" will end up between the &lt;h2&gt; when
+            converted by Jinja2 --&gt;
+            &lt;h2&gt;{{ name.upper() }}&lt;/h2&gt;
+
+            &lt;!-- Assume shopping_list = ["apple", "pear"],
+            then "apple" will end up between the &lt;p&gt;
+            when converted by Jinja2 --&gt;
+            &lt;p&gt;{{ shopping_list[0] }}&lt;/p&gt;
+            ```
+          </div>
+        </section>
+
+        <section>
+          <h3>Templates: functions from Flask</h3>
+          <p>
+            Certain functions are also made available by Flask in templates.
+          </p>
+          <p class="fragment">
+            The <strong>most useful</strong> one you should know about is <code>url_for</code>!
+          </p>
+          <p class="fragment">
+            This is the function we used earlier to include our CSS files earlier!
+          </p>
+        </section>
+
+        <section id="url_for">
+          <p>
+            The <code>url_for()</code> function returns a string containing the full URL
+            to assets (CSS, JavaScript, images etc) in the <strong>static</strong> folder when called
+            with <code>url_for("static", ...)</code>
+          </p>
+          <p>Hence, it's commonly used to pull in assets as follows:</p>
+          <div data-markdown>
+            ```django
+            &lt;!-- Examples on how to pull in CSS, JS and
+            images with url_for --&gt;
+            &lt;link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}"&gt;
+            &lt;script src="{{ url_for('static', filename='app.js')}}"&gt;&lt;/script&gt;
+            &lt;img src="{{ url_for('static', filename='img/pauline.jpg') }}" alt="Pauline"&gt;
+            ```
+          </div>
+          <small>
+            <hr>
+            If you want a more comprehensive template reference, visit the official docs
+            <a href="http://jinja.pocoo.org/docs/2.10/templates/">here</a>!
           </small>
         </section>
 
