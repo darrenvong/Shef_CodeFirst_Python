@@ -1,0 +1,33 @@
+#req-url {
+  position: absolute;
+  top: 10px;
+  left: 40%;
+  font-size: 20px;
+  color: #8E24AA;
+}
+
+#res {
+  position: absolute;
+  bottom: 38%;
+  left: 42.5%;
+  color: #8E24AA;
+  font-size: 18px;
+}
+
+#static-problem-list li {
+  font-size:90%;
+}
+
+#templates-static-pages p,
+#dynamic-page-whats-happening p,
+#jinja2-syntax p,
+#post-request-code p,
+#url_for p,
+#feedback-template-demo p,
+#post-explain p {
+  font-size: 90%;
+}
+
+#post-request-code pre {
+  width: 100%;
+}
