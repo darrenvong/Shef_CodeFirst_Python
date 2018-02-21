@@ -18,7 +18,16 @@
   font-size:90%;
 }
 
+#templates-static-pages p,
+#dynamic-page-whats-happening p,
 #jinja2-syntax p,
-#url_for p {
+#post-request-code p,
+#url_for p,
+#feedback-template-demo p,
+#post-explain p {
   font-size: 90%;
+}
+
+#post-request-code pre {
+  width: 100%;
 }
