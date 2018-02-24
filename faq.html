@@ -24,6 +24,7 @@
     .table > thead > tr > td,
     .table > tbody > tr > td {
       border: 1px solid rgba(0, 0, 0, 0.25);
+      width: 50%;
     }
 
     a.no-underline,
@@ -103,6 +104,7 @@
         <div class="row">
           <h2 class="title text-center">Frequently Asked Questions</h2>
           <div class="col-md-6 col-md-offset-3">
+            <h3 class="title">General Troubleshooting</h3>
             <table class="table">
               <thead>
                 <tr>
@@ -220,6 +222,89 @@ SyntaxError: invalid syntax
                     doesn't depend on git bash. <strong>We recommend you to use
                     GitKraken</strong>, as that will be the software we use to cover how to do
                     anything in class.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Why do I get a permission denied error when I try to install a new library
+                    (<code>flask</code>, <code>requests</code>, <code>tweepy</code>)
+                    required by the course using <strong>pip</strong>?
+                  </td>
+                  <td>
+                    <p>
+                      <strong>Mac/Linux</strong>: This happens since Python is pre-installed
+                      into the operating system as mentioned before, which means any library code
+                      <strong>pip</strong> tries to install may end up in folders that require a
+                      higher permission level than the <strong>pip</strong> command has.
+                      It's a security mechanism to prevent rogue files being installed onto critical
+                      parts of your computer.
+                    </p>
+                    <p>
+                      To overcome the issue, if you haven't already, I recommend you install Python 3.6
+                      using the Mac OS X installer <a href="https://www.python.org/" target="_blank">here</a>.
+                    </p>
+                    <p>
+                      If you're using a Linux-based OS... then try installing Python 3.6 by setting up
+                      <a href="https://github.com/pyenv/pyenv" target="_blank">pyenv</a> instead.
+                    </p>
+                    <br>
+                    <p>
+                      <strong>Windows</strong>: Search for the <strong>Powershell</strong> or
+                      <strong>cmd</strong> in your start menu. Then, right click the result to start the
+                      shell as an <strong>administrator</strong> and try running the commands again. This
+                      is relatively safe since we are installing trusted libraries and Windows does not
+                      depend on Python like Mac/Linux computers do.
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <h3 class="title">Flask</h3>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Question</th>
+                  <th scope="col">Answer</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    Why do(es) the HTML template(s) I tried to load using <code>render_template</code>
+                    not showing up in the browser when I visit <code>localhost:5000/...</code>?
+                  </td>
+                  <td>
+                    Double check where you saved your HTML files: it needs to be inside the
+                    <strong>templates</strong> folder, otherwise Flask won't be able to find (and serve)
+                    them to back to your browser.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Why do(es) the CSS, JavaScript and/or image assets I've included not showing up in
+                    the browser when I visit <code>localhost:5000/...</code>?
+                  </td>
+                  <td>
+                    <p>
+                      Firstly, check that you have saved them inside the <strong>static</strong> folder,
+                      otherwise Flask won't be able to find and load them onto your page.
+                    </p>
+                    <p>
+                      The next thing to pay attention to is the <strong>spacing</strong> between the
+                      <code>{{ }}</code> used to output the location of the assets. There should be
+                      <strong>no spaces</strong> between the double curly braces/brackets.
+                    </p>
+                    <p>
+                      If that's not the problem, then check that you're using <strong>single quotes</strong>
+                      in the arguments of the <code>url_for</code> function call. This is important
+                      since using double quotes in the <code>url_for</code> function call arguments
+                      would close off the double quote we used for the <code>src</code> or
+                      <code>href</code> attribute in our HTML for including our assets.
+                    </p>
                   </td>
                 </tr>
               </tbody>
