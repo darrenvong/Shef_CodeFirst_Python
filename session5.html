@@ -35,13 +35,8 @@
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
 
-    <style>
-      pre {
-        white-space: pre-wrap;
-        font-size: 0.85em;
-        width: 100% !important;
-      }
-    </style>
+    <!-- Session specific CSS -->
+    <link rel="stylesheet" href="css/session5.css">
 
   </head>
   <body>
@@ -71,6 +66,99 @@
           <p class='fragment grow'>
             <a href="https://darrenvong.github.io/shefcodefirst-python/">
               https://darrenvong.github.io/shefcodefirst-python/</a></p>
+        </section>
+
+        <section>
+          <h3><i class="fa fa-reply" aria-hidden="true"></i>
+            Recap: Templates <i class="fa fa-code"></i>
+          </h3>
+          <ul>
+            <li>
+              Allows us to break up our HTML pages into <strong>smaller</strong>,
+              <strong>re-usable</strong> parts.
+            </li>
+            <li>
+              For static pages, templates allow us to update common parts on a page
+              <strong>once</strong> rather than everywhere!
+            </li>
+            <li>
+              Extends the capabilities of normal HTML by allowing us to write
+              Python-like code to output <strong>dynamic data</strong> from the user's
+              <strong>request</strong>.
+            </li>
+          </ul>
+        </section>
+
+        <section id="data-passing-recap">
+          <h3><i class="fa fa-reply" aria-hidden="true"></i>
+            Recap: Passing data from Flask to templates
+          </h3>
+          <ul>
+            <li>
+              By default, HTML templates can't access the data (either from a user's request,
+              or from an API/file on the server) from the Python code.
+            </li>
+            <li>
+              If we want to output any data to the user in our HTML templates, we need to
+              <strong>explicitly pass</strong> them to the templates.
+            </li>
+            <li>
+              This can be done by assigning the data to new variables <strong>after</strong>
+              the template name argument in the <code>render_template</code> function.
+            </li>
+          </ul>
+        </section>
+
+        <section id="data-passing-recap-code-snippet">
+          <p>
+            There's no limit on the number of variables we can pass along -
+            we can add as many as we need!
+          </p>
+          <p class="fragment">Suppose the template we want to show the user is called
+            <strong>index.html</strong>, and we have a shopping list we want to output,
+            we can make the shopping list available to the template like so:
+          </p>
+          <div class="fragment" data-markdown>
+            ```python
+            @app.route("/")
+            def index():
+              basket = ["apple", "orange"] # shopping list
+              # In "index.html", we can then access the list via the "shopping_list" variable
+              return render_template("index.html", shopping_list=basket)
+            ```
+          </div>
+        </section>
+
+        <section>
+          <h3><i class="fa fa-reply" aria-hidden="true"></i>
+            Recap: POST requests
+          </h3>
+          <ul>
+            <li>
+              By default, when we visit a URL in our browser, we are sending a <strong>GET request</strong>
+              to the server.
+            </li>
+            <li>GET request exposes any user data at the end of the URL, which is
+              <strong>not very good</strong> when we sometimes need to send <strong>sensitive data</strong>.
+            </li>
+            <li>To overcome this problem, data can be sent from our webpages to the server using
+              <strong>POST requests</strong> via a form.
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <ul>
+            <li>
+              In order to make our function capable of handling POST requests, we need to add
+              <code>methods=["POST"]</code> after the URL pattern argument in <code>@app.route</code>.
+            </li>
+            <li>
+              If we try to visit the URL directly, we will get a
+              <strong>Method Not Allowed</strong> error if we don't have a catch-all
+              <code>@app.route</code> binding to another function in our code.
+            </li>
+          </ul>
         </section>
 
         <section>

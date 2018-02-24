@@ -1,0 +1,10 @@
+pre {
+  white-space: pre-wrap;
+  font-size: 0.85em;
+  width: 100% !important;
+}
+
+#data-passing-recap li,
+#data-passing-recap-code-snippet p {
+  font-size: 90%;
+}
