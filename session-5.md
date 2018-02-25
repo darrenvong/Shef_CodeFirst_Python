@@ -229,8 +229,6 @@ print("It's {}C in {}, and the sky is {}".format(temperature, name, weather))
 
 1. Go to [heroku.com](http://www.heroku.com) and sign up for a free account. Make sure you follow the instructions that Heroku emails you to validate it.
 
-1. Check if you have **setuptools** and **virtualenv** and **postgres** installed already by opening your command line and typing **pip list**. If you don't see these packages in the list that displays, you can install each of them using pip
-
 ## Extra Homework (optional)
 
 1. Learn Python The HardWay exercises [38](https://learnpythonthehardway.org/book/ex38.html) and [39](https://learnpythonthehardway.org/book/ex39.html)
