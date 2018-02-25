@@ -274,6 +274,23 @@ SyntaxError: invalid syntax
               <tbody>
                 <tr>
                   <td>
+                    Why do I get an error page with the following message on the page (along with
+                    a page full of traceback) when I visit <code>localhost:5000/...</code>?
+                    <pre>
+                      <code>
+builtins.NameError
+NameError: name 'render_template' is not defined
+                      </code>
+                    </pre>
+                  </td>
+                  <td>
+                    You may have forgotten to <strong>import</strong> the <code>render_template</code>
+                    function from Flask. You can fix that adding <code>render_template</code>
+                    at the end of the Flask import's comma separated list.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
                     Why do(es) the HTML template(s) I tried to load using <code>render_template</code>
                     not showing up in the browser when I visit <code>localhost:5000/...</code>?
                   </td>
@@ -304,6 +321,47 @@ SyntaxError: invalid syntax
                       since using double quotes in the <code>url_for</code> function call arguments
                       would close off the double quote we used for the <code>src</code> or
                       <code>href</code> attribute in our HTML for including our assets.
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Why do I get the following error (together with a long trackback above) when I try to run my Flask app in the terminal?
+                    <pre>
+<code>
+AssertionError: View function mapping is overwriting an existing endpoint function: say_hello
+</code>
+                    </pre>
+                  </td>
+                  <td>
+                    <p>
+                    You most likely have defined functions <strong>with the same name</strong> twice
+                    or more! Since function names in the same Python file have to be unique, the error
+                    is telling you that you are replacing what you've written already, which is probably
+                    not what you want!
+                    </p>
+                    <p>
+                      To fix this error, simply rename your functions so that they all have different names.
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Why do some parts of my templates code show up in my browser when I try to
+                    visit my app in the browser?
+                  </td>
+                  <td>
+                    <p>
+                      You have probably tried to "visit" the app by double clicking the HTML file
+                      directly in File Explorer/Finder. This is <strong>not</strong> the right way to
+                      visit your app since your browser won't understand the additional template syntax
+                      that's not really part of HTML!
+                    </p>
+                    <p>
+                      The correct way to visit your app is by typing <code>localhost:5000/...</code>,
+                      as this ensures your template HTML will be run through the template engine which
+                      <strong>does</strong> know how to interpret the additional syntax and so will
+                      process and remove them before they are returned to the browser! 
                     </p>
                   </td>
                 </tr>
