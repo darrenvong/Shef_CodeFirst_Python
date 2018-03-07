@@ -43,7 +43,7 @@ Heroku will do so automatically.
 Congratulations! You have now successfully deployed your application to Heroku!
 
 # Adding new Python libraries to your app
-When developing our apps locally, if you want to use a Python library like Flask so we can
+When developing our apps locally, if you want to use a Python library like Flask in order to
 start up a server controllable by you, the library needs to be installed first before we can use it by running
 `pip install Flask` (or replace `Flask` with whatever library you need to install
 in that command).
