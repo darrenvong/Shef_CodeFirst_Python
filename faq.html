@@ -1,403 +1,277 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
-  <title> Code First: Advanced Python material</title>
-
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-
-  <!--     Fonts and icons     -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-
-
-  <!-- CSS Files -->
-  <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="./assets/css/material-kit.css" rel="stylesheet"/>
-
-  <style media="screen">
-    .table > thead > tr > td,
-    .table > tbody > tr > td {
-      border: 1px solid rgba(0, 0, 0, 0.25);
-      width: 50%;
-    }
-
-    a.no-underline,
-    a.no-underline:hover {
-      border: 0;
-    }
-  </style>
-</head>
-
-<body class="profile-page">
-  <nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll">
-    <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse"
-        data-target="#navigation-website">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-
-        <a class="navbar-brand" href="index.html">
-        CFG Python Advanced Course</a>
-      </div>
-
-    <div class="collapse navbar-collapse" id="navigation-website">
-      <ul class="nav navbar-nav navbar-right">
-
-        <li>
-          <a href="./faq.html" class="text-center">
-            FAQ
-          </a>
-        </li>
-
-        <li>
-          <a href="./theteam.html" class="text-center">
-            The team
-          </a>
-        </li>
-
-        <li>
-          <a href="https://ss18cfgshefpython.slack.com/" target="_blank"
-          class="btn btn-simple btn-white btn-just-icon">
-          <i class="fa fa-slack" aria-hidden="true"></i>
-          </a>
-        </li>
-
-        <li>
-          <a href="https://twitter.com/search?src=typd&q=shefcodefirst" target="_blank"
-          class="btn btn-simple btn-white btn-just-icon">
-          <i class="fa fa-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a href="https://www.facebook.com/groups/803069303236463/"
-        target="_blank" class="btn btn-simple btn-white btn-just-icon">
-        <i class="fa fa-facebook-square"></i>
-      </a>
-    </li>
-
-  </ul>
-      </div>
-    </div>
-  </nav>
-
-<!--  Big header  -->
-<div class="wrapper">
-  <div class="header header-filter"
-    style="background-image: url('./assets/python.jpg');
-    background-repeat: no-repeat; background-position: 100% 100%;">
-  </div>
-
-  <div class="main main-raised">
-    <div class="profile-content">
-      <div class="container">
-        <div class="row">
-          <h2 class="title text-center">Frequently Asked Questions</h2>
-          <div class="col-md-6 col-md-offset-3">
-            <h3 class="title">General Troubleshooting</h3>
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">Question</th>
-                  <th scope="col">Answer</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    Why do I get the following error when I tried to run my Python code
-                    by typing <code>python hello.py</code>?
-                    <pre>
+---
+layout: site
+title: "#ShefCodeFirst Advanced Python material"
+---
+<div class="container">
+  <div class="row">
+    <h2 class="title text-center">Frequently Asked Questions</h2>
+    <div class="col-md-6 col-md-offset-3">
+      <h3 class="title">General Troubleshooting</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Question</th>
+            <th scope="col">Answer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Why do I get the following error when I tried to run my Python code
+              by typing <code>python hello.py</code>?
+              <pre>
 python: can't open file 'hello.py':
 [Errno 2] No such file or directory
                     </pre>
-                  </td>
-                  <td>
-                    <p>
-                      Your terminal is probably <strong>not pointing at the right folder</strong>,
-                      where your Python file is saved.
-                    </p>
-                    <p>
-                      To fix that, work out which folder you saved your Python code at and change the
-                      folder the terminal is pointing at by typing <code>cd &lt;name_of_folder&gt;</code>,
-                      replacing <code>&lt;name_of_folder&gt;</code> with the actual name of the folder
-                      you saved your Python code at.
-                    </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Why does every time I run my code by typing <code>python hello.py</code>
-                    in the terminal (where <strong>hello.py</strong> is the name of my Python file)
-                    I get the following error?
-                    <pre>
+            </td>
+            <td>
+              <p>
+                Your terminal is probably <strong>not pointing at the right folder</strong>,
+                where your Python file is saved.
+              </p>
+              <p>
+                To fix that, work out which folder you saved your Python code at and change the
+                folder the terminal is pointing at by typing <code>cd &lt;name_of_folder&gt;</code>,
+                replacing <code>&lt;name_of_folder&gt;</code> with the actual name of the folder
+                you saved your Python code at.
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Why does every time I run my code by typing <code>python hello.py</code>
+              in the terminal (where <strong>hello.py</strong> is the name of my Python file)
+              I get the following error?
+              <pre>
 File "&lt;stdin&gt;", line 1
   python hello.py
              ^
 SyntaxError: invalid syntax
                     </pre>
-                  </td>
-                  <td>
-                    <p>
-                      You're most likely still running Python in <strong>interactive mode</strong>,
-                      which is <strong>a program on its own</strong> and as you can only run one
-                      program at a time in your terminal, you won't be able to run your Python file
-                      at the same time.
-                    </p>
-                    <p>
-                      To fix that, type <code>exit()</code> or <code>quit()</code> to get out of
-                      interactive mode first before trying to run your Python file again.
-                    </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    How do I know I am running Python in interactive mode?
-                  </td>
-                  <td>
-                    If you see <code>>></code> or <code>In [x]:</code> (for IPython) at the beginning of the
-                    current line in your terminal, you are in interactive mode.
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <em>(Mac/Linux only)</em> Why does typing <code>python -V</code> still says
-                    I'm running Python 2.7, even though I've installed Python 3.6?
-                  </td>
-                  <td>
-                    <p>
-                      On Mac/Linux computers, Python is pre-installed into the operating system.
-                      As such, its version of Python (2.7) is found before the Python version you've
-                      downloaded.
-                    </p>
-                    <p>
-                      To run your cdoe with Python 3.6 you've installed, try
-                      <code>python3.6 hello.py</code> instead of <code>python hello.py</code>.
-                    </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <em>(Windows only)</em> What should I do if git bash freezes every time
-                  I try to run Python?
-                  </td>
-                  <td>
-                    Try closing git bash first, open it again then run Python. If that
-                    doesn't fix the issue, search for <strong>cmd</strong> or
-                    <strong>Powershell</strong>, open that and run Python in it instead.
-                    If none of that works, speak to an instructor to make sure the python
-                    executable is properly registered to be used directly in the command line.
-                  </td>
-                </tr>
-                <tr>
-                  <td><em>(Windows only)</em> What is the difference between
-                    <strong>git bash</strong> and <strong>GitKraken</strong>?</td>
-                  <td>
-                    <p>
-                    They are both softwares for interacting with git, the version control system you
-                    will be using throughout this course to backup and work on code together.</p>
-                    <p>
-                      <strong>Git bash</strong> allows you to interact with git through the
-                      command prompt/Powershell, whereas <strong>GitKraken</strong>
-                      allows you to do the same thing through a pretty and more friendly
-                      graphical user interface.
-                    </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td><em>(Windows only)</em> Do I need both <strong>git bash</strong> and
-                  <strong>GitKraken</strong>? Which one should I use?</td>
-                  <td>
-                    You don't need both software together, as GitKraken
-                    doesn't depend on git bash. <strong>We recommend you to use
-                    GitKraken</strong>, as that will be the software we use to cover how to do
-                    anything in class.
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Why do I get a permission denied error when I try to install a new library
-                    (<code>flask</code>, <code>requests</code>, <code>tweepy</code>)
-                    required by the course using <strong>pip</strong>?
-                  </td>
-                  <td>
-                    <p>
-                      <strong>Mac/Linux</strong>: This happens since Python is pre-installed
-                      into the operating system as mentioned before, which means any library code
-                      <strong>pip</strong> tries to install may end up in folders that require a
-                      higher permission level than the <strong>pip</strong> command has.
-                      It's a security mechanism to prevent rogue files being installed onto critical
-                      parts of your computer.
-                    </p>
-                    <p>
-                      To overcome the issue, if you haven't already, I recommend you install Python 3.6
-                      using the Mac OS X installer <a href="https://www.python.org/" target="_blank">here</a>.
-                    </p>
-                    <p>
-                      If you're using a Linux-based OS... then try installing Python 3.6 by setting up
-                      <a href="https://github.com/pyenv/pyenv" target="_blank">pyenv</a> instead.
-                    </p>
-                    <br>
-                    <p>
-                      <strong>Windows</strong>: Search for the <strong>Powershell</strong> or
-                      <strong>cmd</strong> in your start menu. Then, right click the result to start the
-                      shell as an <strong>administrator</strong> and try running the commands again. This
-                      is relatively safe since we are installing trusted libraries and Windows does not
-                      depend on Python like Mac/Linux computers do.
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 col-md-offset-3">
-            <h3 class="title">Flask</h3>
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">Question</th>
-                  <th scope="col">Answer</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    Why do I get an error page with the following message on the page (along with
-                    a page full of traceback) when I visit <code>localhost:5000/...</code>?
-                    <pre>
+            </td>
+            <td>
+              <p>
+                You're most likely still running Python in <strong>interactive mode</strong>,
+                which is <strong>a program on its own</strong> and as you can only run one
+                program at a time in your terminal, you won't be able to run your Python file
+                at the same time.
+              </p>
+              <p>
+                To fix that, type <code>exit()</code> or <code>quit()</code> to get out of
+                interactive mode first before trying to run your Python file again.
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              How do I know I am running Python in interactive mode?
+            </td>
+            <td>
+              If you see <code>>></code> or <code>In [x]:</code> (for IPython) at the beginning of the
+              current line in your terminal, you are in interactive mode.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <em>(Mac/Linux only)</em> Why does typing <code>python -V</code> still says
+              I'm running Python 2.7, even though I've installed Python 3.6?
+            </td>
+            <td>
+              <p>
+                On Mac/Linux computers, Python is pre-installed into the operating system.
+                As such, its version of Python (2.7) is found before the Python version you've
+                downloaded.
+              </p>
+              <p>
+                To run your cdoe with Python 3.6 you've installed, try
+                <code>python3.6 hello.py</code> instead of <code>python hello.py</code>.
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <em>(Windows only)</em> What should I do if git bash freezes every time
+              I try to run Python?
+            </td>
+            <td>
+              Try closing git bash first, open it again then run Python. If that
+              doesn't fix the issue, search for <strong>cmd</strong> or
+              <strong>Powershell</strong>, open that and run Python in it instead.
+              If none of that works, speak to an instructor to make sure the python
+              executable is properly registered to be used directly in the command line.
+            </td>
+          </tr>
+          <tr>
+            <td><em>(Windows only)</em> What is the difference between
+              <strong>git bash</strong> and <strong>GitKraken</strong>?</td>
+            <td>
+              <p>
+                They are both softwares for interacting with git, the version control system you
+                will be using throughout this course to backup and work on code together.</p>
+              <p>
+                <strong>Git bash</strong> allows you to interact with git through the
+                command prompt/Powershell, whereas <strong>GitKraken</strong>
+                allows you to do the same thing through a pretty and more friendly
+                graphical user interface.
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td><em>(Windows only)</em> Do I need both <strong>git bash</strong> and
+              <strong>GitKraken</strong>? Which one should I use?</td>
+            <td>
+              You don't need both software together, as GitKraken
+              doesn't depend on git bash. <strong>We recommend you to use
+                GitKraken</strong>, as that will be the software we use to cover how to do
+              anything in class.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Why do I get a permission denied error when I try to install a new library
+              (<code>flask</code>, <code>requests</code>, <code>tweepy</code>)
+              required by the course using <strong>pip</strong>?
+            </td>
+            <td>
+              <p>
+                <strong>Mac/Linux</strong>: This happens since Python is pre-installed
+                into the operating system as mentioned before, which means any library code
+                <strong>pip</strong> tries to install may end up in folders that require a
+                higher permission level than the <strong>pip</strong> command has.
+                It's a security mechanism to prevent rogue files being installed onto critical
+                parts of your computer.
+              </p>
+              <p>
+                To overcome the issue, if you haven't already, I recommend you install Python 3.6
+                using the Mac OS X installer <a href="https://www.python.org/" target="_blank">here</a>.
+              </p>
+              <p>
+                If you're using a Linux-based OS... then try installing Python 3.6 by setting up
+                <a href="https://github.com/pyenv/pyenv" target="_blank">pyenv</a> instead.
+              </p>
+              <br>
+              <p>
+                <strong>Windows</strong>: Search for the <strong>Powershell</strong> or
+                <strong>cmd</strong> in your start menu. Then, right click the result to start the
+                shell as an <strong>administrator</strong> and try running the commands again. This
+                is relatively safe since we are installing trusted libraries and Windows does not
+                depend on Python like Mac/Linux computers do.
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h3 class="title">Flask</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Question</th>
+            <th scope="col">Answer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Why do I get an error page with the following message on the page (along with
+              a page full of traceback) when I visit <code>localhost:5000/...</code>?
+              <pre>
                       <code>
 builtins.NameError
 NameError: name 'render_template' is not defined
                       </code>
                     </pre>
-                  </td>
-                  <td>
-                    You may have forgotten to <strong>import</strong> the <code>render_template</code>
-                    function from Flask. You can fix that adding <code>render_template</code>
-                    at the end of the Flask import's comma separated list.
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Why do(es) the HTML template(s) I tried to load using <code>render_template</code>
-                    not showing up in the browser when I visit <code>localhost:5000/...</code>?
-                  </td>
-                  <td>
-                    Double check where you saved your HTML files: it needs to be inside the
-                    <strong>templates</strong> folder, otherwise Flask won't be able to find (and serve)
-                    them to back to your browser.
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Why do(es) the CSS, JavaScript and/or image assets I've included not showing up in
-                    the browser when I visit <code>localhost:5000/...</code>?
-                  </td>
-                  <td>
-                    <p>
-                      Firstly, check that you have saved them inside the <strong>static</strong> folder,
-                      otherwise Flask won't be able to find and load them onto your page.
-                    </p>
-                    <p>
-                      The next thing to pay attention to is the <strong>spacing</strong> between the
-                      <code>{{ }}</code> used to output the location of the assets. There should be
-                      <strong>no spaces</strong> between the double curly braces/brackets.
-                    </p>
-                    <p>
-                      If that's not the problem, then check that you're using <strong>single quotes</strong>
-                      in the arguments of the <code>url_for</code> function call. This is important
-                      since using double quotes in the <code>url_for</code> function call arguments
-                      would close off the double quote we used for the <code>src</code> or
-                      <code>href</code> attribute in our HTML for including our assets.
-                    </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Why do I get the following error (together with a long trackback above) when I try to run my Flask app in the terminal?
-                    <pre>
+            </td>
+            <td>
+              You may have forgotten to <strong>import</strong> the <code>render_template</code>
+              function from Flask. You can fix that adding <code>render_template</code>
+              at the end of the Flask import's comma separated list.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Why do(es) the HTML template(s) I tried to load using <code>render_template</code>
+              not showing up in the browser when I visit <code>localhost:5000/...</code>?
+            </td>
+            <td>
+              Double check where you saved your HTML files: it needs to be inside the
+              <strong>templates</strong> folder, otherwise Flask won't be able to find (and serve)
+              them to back to your browser.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Why do(es) the CSS, JavaScript and/or image assets I've included not showing up in
+              the browser when I visit <code>localhost:5000/...</code>?
+            </td>
+            <td>
+              <p>
+                Firstly, check that you have saved them inside the <strong>static</strong> folder,
+                otherwise Flask won't be able to find and load them onto your page.
+              </p>
+              {% raw %}
+              <p>
+                The next thing to pay attention to is the <strong>spacing</strong> between the
+                <code>{{ }}</code> used to output the location of the assets. There should be
+                <strong>no spaces</strong> between the double curly braces/brackets.
+              </p>
+              {% endraw %}
+              <p>
+                If that's not the problem, then check that you're using <strong>single quotes</strong>
+                in the arguments of the <code>url_for</code> function call. This is important
+                since using double quotes in the <code>url_for</code> function call arguments
+                would close off the double quote we used for the <code>src</code> or
+                <code>href</code> attribute in our HTML for including our assets.
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Why do I get the following error (together with a long trackback above) when I try to run my Flask app in
+              the terminal?
+              <pre>
 <code>
 AssertionError: View function mapping is overwriting an existing endpoint function: say_hello
 </code>
-                    </pre>
-                  </td>
-                  <td>
-                    <p>
-                    You most likely have defined functions <strong>with the same name</strong> twice
-                    or more! Since function names in the same Python file have to be unique, the error
-                    is telling you that you are replacing what you've written already, which is probably
-                    not what you want!
-                    </p>
-                    <p>
-                      To fix this error, simply rename your functions so that they all have different names.
-                    </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Why do some parts of my templates code show up in my browser when I try to
-                    visit my app in the browser?
-                  </td>
-                  <td>
-                    <p>
-                      You have probably tried to "visit" the app by double clicking the HTML file
-                      directly in File Explorer/Finder. This is <strong>not</strong> the right way to
-                      visit your app since your browser won't understand the additional template syntax
-                      that's not really part of HTML!
-                    </p>
-                    <p>
-                      The correct way to visit your app is by typing <code>localhost:5000/...</code>,
-                      as this ensures your template HTML will be run through the template engine which
-                      <strong>does</strong> know how to interpret the additional syntax and so will
-                      process and remove them before they are returned to the browser! 
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
+              </pre>
+            </td>
+            <td>
+              <p>
+                You most likely have defined functions <strong>with the same name</strong> twice
+                or more! Since function names in the same Python file have to be unique, the error
+                is telling you that you are replacing what you've written already, which is probably
+                not what you want!
+              </p>
+              <p>
+                To fix this error, simply rename your functions so that they all have different names.
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Why do some parts of my templates code show up in my browser when I try to
+              visit my app in the browser?
+            </td>
+            <td>
+              <p>
+                You have probably tried to "visit" the app by double clicking the HTML file
+                directly in File Explorer/Finder. This is <strong>not</strong> the right way to
+                visit your app since your browser won't understand the additional template syntax
+                that's not really part of HTML!
+              </p>
+              <p>
+                The correct way to visit your app is by typing <code>localhost:5000/...</code>,
+                as this ensures your template HTML will be run through the template engine which
+                <strong>does</strong> know how to interpret the additional syntax and so will
+                process and remove them before they are returned to the browser!
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-
   </div>
 </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="container">
-        <div class="copyright pull-right">
-          &copy; 2018, made with <i class="fa fa-heart heart"></i> by <s>Tania A</s> Darren V.
-        </div>
-      </div>
-    </footer>
-
-
-  </body>
-  <!--   Core JS Files   -->
-  <script src="./js/jquery.min.js" type="text/javascript"></script>
-  <script src="./js/bootstrap.min.js" type="text/javascript"></script>
-  <script src="./js/material.min.js"></script>
-
-  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-  <script src="./js/nouislider.min.js" type="text/javascript"></script>
-
-  <!--  Plugin for the Datepicker, full documentation here: http://www.eyecon.ro/bootstrap-datepicker/ -->
-  <script src="./js/bootstrap-datepicker.js" type="text/javascript"></script>
-
-  <!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
-  <script src="./js/material-kit.js" type="text/javascript"></script>
-
-  </html>
