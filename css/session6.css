@@ -1,0 +1,42 @@
+pre {
+  white-space: pre-wrap;
+  font-size: 0.85em;
+}
+#heroku-list li {
+  font-size: 36px;
+}
+#req-url {
+  position: absolute;
+  top: 10px;
+  left: 32%;
+  font-size: 16px;
+  color: #8e24aa;
+}
+#res {
+  position: absolute;
+  color: #8e24aa;
+  font-size: 18px;
+  bottom: 25%;
+  left: 39.5%;
+}
+#res pre {
+  width: 100%;
+  transform: scale(1.2);
+  box-shadow: none;
+}
+#res code {
+  background: transparent;
+  color: #8e24aa;
+}
+#res .hljs-number {
+  color: rgb(143, 62, 165);
+}
+#python {
+  position: absolute;
+  top: -15px;
+  left: 13.5%;
+  transform: scale(0.85);
+}
+.full-width pre {
+  width: 100%;
+}

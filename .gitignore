@@ -10,3 +10,10 @@ single.html
 
 config.*
 actual-config.js
+
+# Jekyll generated/Ruby files
+_site
+.jekyll-metadata
+
+vendor
+.bundle

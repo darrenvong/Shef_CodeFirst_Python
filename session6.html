@@ -35,22 +35,8 @@
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
 
-    <style media="screen">
-      pre{
-        white-space: pre-wrap;
-        font-size: 0.85em;
-      }
-      #heroku-list li {
-        font-size: 36px;
-      }
-      #req-url {position: absolute;top: 10px;left: 32%;font-size: 16px;color: #8E24AA;}
-      #res {position: absolute;color: #8E24AA;font-size: 18px;bottom: 25%;left: 39.5%;}
-      #res pre {width: 100%;transform:scale(1.2);box-shadow:none;}
-      #res code {background: transparent; color: #8E24AA;}
-      #res .hljs-number {color:rgb(143, 62, 165);}
-      #python {position: absolute;top:-15px;left:13.5%;transform:scale(0.85);}
-      .full-width pre {width:100%;}
-    </style>
+    <!-- Session specific CSS -->
+    <link rel="stylesheet" href="css/session6.css">
 
   </head>
   <body>
@@ -208,42 +194,6 @@
             </a>
           </p>
         </section>
-
-        <!--
-        <section>
-          <h3>
-            <i class="fa fa-key" aria-hidden="true"></i>
-            More on API keys
-          </h3>
-          <p>
-            Recall from earlier (and last session) that API keys should be stored in a
-            <strong>separate config file</strong> that should never be committed to GitHub.
-          </p>
-          <p class="fragment">
-            But the only way to add
-            <strong>any files</strong> to our app on Heroku is by pushing them to GitHub...
-          </p>
-          <p class="fragment">
-            Although using a config file for API keys is normally the best practice, we'll have to forget it
-            <strong>due to the quirks</strong> of Heroku.
-          </p>
-        </section>
-
-        <section>
-          <p>Remember this minor modification we made earlier to our Flask code?</p>
-          <div data-markdown>
-          ```python
-          if "PORT" in os.environ:
-            port = os.environ["PORT"]
-            app.run(host="0.0.0.0", port=port)
-          else:
-            app.run(debug=True)
-          ```
-          </div>
-          <p class="fragment">
-            This gives us a hint on how we might store and access our API keys:
-            in <strong>config (environment) variables</strong>!</p>
-        </section> -->
 
         <section>
           <h3>Config (environment) variables</h3>

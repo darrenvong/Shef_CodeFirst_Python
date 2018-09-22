@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang='{{ page.lang | default: site.lang | default: "en" }}'>
+
+  {%- include head.html -%}
+
+  <body>
+
+    {%- include header.html -%}
+    <!--  Big header  -->
+    <div class="wrapper">
+      <div class="header header-filter" style="background-image: url('/assets/python.jpg');
+      background-repeat: no-repeat; background-position: 100% 100%;">
+      </div>
+    
+      <div class="main main-raised">
+        <div class="profile-content">
+          {{ content }}
+        </div>
+      </div>
+
+    {%- include footer.html -%}
+
+    <!--   Core JS Files   -->
+    <script src='{{ "/js/jquery.min.js" | relative_url }}' type="text/javascript"></script>
+    <script src='{{ "/js/bootstrap.min.js" | relative_url }}' type="text/javascript"></script>
+    <script src='{{ "/js/material.min.js" | relative_url }}'></script>
+    
+    <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+    <script src='{{ "/js/nouislider.min.js" | relative_url }}' type="text/javascript"></script>
+    
+    <!--  Plugin for the Datepicker, full documentation here: http://www.eyecon.ro/bootstrap-datepicker/ -->
+    <script src='{{ "/js/bootstrap-datepicker.js" | relative_url }}' type="text/javascript"></script>
+    
+    <!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
+    <script src='{{ "/js/material-kit.js" | relative_url }}' type="text/javascript"></script>
+    </div>
+  </body>
+</html>
