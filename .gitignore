@@ -9,3 +9,4 @@ single.html
 *config.*
 
 session5/CFG_app/helpers/__pycache__/
+Gemfile.lock

@@ -7,7 +7,7 @@
 
 Course materials for the Advanced Python course in Sheffield 🤖
 
-**The contents of this repository were intended for the Spring/Summer 2018 course**
+**The contents of this repository were intended for the Spring/Summer 2019 course**
 
 ## Accessing the course materials
 We have a mini-site that should serve as main point of access for all the course materials
