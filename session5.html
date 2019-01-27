@@ -1,47 +1,11 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+---
+layout: slide
+title: "Session 5: APIs"
+description: Querying data efficiently from other websites
+image_url: "/assets/session5_slide.png"
+css: "/css/session5.css"
+---
 
-    <!-- Facebook Open Graph tags -->
-    <meta property="og:url" content="https://darrenvong.github.io/shefcodefirst-python/session5.html">
-    <meta property="og:title" content="Session 5: APIs">
-    <meta property="og:description" content="Querying data efficiently from other websites">
-    <meta property="og:image" content="https://darrenvong.github.io/shefcodefirst-python/assets/session5_slide.png">
-
-    <title>CFG session 5</title>
-
-    <link rel="stylesheet" href="reveal.js/css/reveal.css">
-    <link rel="stylesheet" href="reveal.js/css/theme/white.css">
-    <!-- or you can use the dark theme
-    rel="stylesheet" href="reveal.js/css/theme/black.css"> -->
-
-    <!-- Customised theme  -->
-    <link rel="stylesheet" href="reveal.js/css/theme/custom.css">
-
-    <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="reveal.js/lib/css/github-gist.css">
-
-    <!-- Font awesome -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
-
-    <!-- Printing and PDF exports -->
-    <script>
-      var link = document.createElement( 'link' );
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
-      document.getElementsByTagName( 'head' )[0].appendChild( link );
-    </script>
-
-    <!-- Session specific CSS -->
-    <link rel="stylesheet" href="css/session5.css">
-
-  </head>
-  <body>
-    <div class="reveal">
-      <div class="slides logo">
         <section>
           <h2> Session 5: APIs </h2>
           <p>
@@ -392,7 +356,7 @@
         ```python
         def see_timeline(no_tweets):
           for tweet in tweepy.Cursor(twitter.home_timeline).items(no_tweets):
-          print("\n {} tweeted by {}".format(status.text, status.user.name))
+              print("\n {} tweeted by {}".format(tweet.text, tweet.user.name))
         ```
       </section>
 
@@ -437,25 +401,3 @@
         Click this to check out the app's source code
       </a>
       </section>
-
-      </div>
-    </div>
-
-    <script src="reveal.js/lib/js/head.min.js"></script>
-    <script src="reveal.js/js/reveal.js"></script>
-
-    <script>
-      // More info about config & dependencies:
-      // - https://github.com/hakimel/reveal.js#configuration
-      // - https://github.com/hakimel/reveal.js#dependencies
-      Reveal.initialize({
-        dependencies: [
-          { src: 'reveal.js/plugin/markdown/marked.js' },
-          { src: 'reveal.js/plugin/markdown/markdown.js' },
-          { src: 'reveal.js/plugin/notes/notes.js', async: true },
-          { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-        ]
-      });
-    </script>
-  </body>
-</html>
