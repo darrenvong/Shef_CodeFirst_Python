@@ -42,11 +42,50 @@ image_url: "/assets/session1_slide.png"
 </section>
 
 <section>
+  <h3>What will we be doing during this course?</h3>
+  <img src="./assets/webapp.png" alt="web app">
+  <img src="./assets/html.png" alt="html logo">
+</section>
+
+<section>
+  <h3>What am I going to learn today?</h3>
+  <ul>
+    <li>Use Python from the command line/terminal</li>
+    <li>Basic usage of the command line/terminal commands</li>
+    <li>Write your first Python script and run it</li>
+    <li>Do some basic manipulation on strings</li>
+    <li>Do some basic math operations</li>
+    <li>Create and use variables</li>
+  </ul>
+</section>
+
+<section>
+  <h3><i class="fa fa-sticky-note"></i>
+    Feedback - post-it notes
+  </h3>
+  <p>Throughout the session, put up your:</p>
+  <ul>
+    <li><strong>Green</strong> post-it if you're following everything</li>
+    <li><strong>Red</strong> post-it if you're lost/need help</li>
+  </ul>
+  <p>At the end, write at least one good and bad things about the session on the post-it notes!</p>
+</section>
+
+<section>
   <h3>What is Python?</h3>
   <img src="./assets/python_logo.jpg" alt="python logo" style='float: left'>
   <p> It is an <strong>open source</strong> programming language
     with an emphasis on code readability...</p>
   <p class='fragment'>which makes it great for beginners!!!
+  </p>
+</section>
+
+<section>
+  <h3>Running Python</h3>
+  <p>
+    Python exists to run <strong>programs you have written</strong>, but it can also run as a program
+    itself, allowing you to explore the language by typing in commands which it'll then execute for you
+    on the fly.
   </p>
 </section>
 
@@ -59,14 +98,6 @@ image_url: "/assets/session1_slide.png"
   <br>
   Your terminal will look similar to this:
   <img src="./assets/python_i.png" alt="interactive">
-</section>
-
-<section>
-  The <a href="https://www.python.org/dev/peps/pep-0020/">
-    Zen of Python</a> summarises the language's core principles.
-  <br><br>
-  Type <code> import this </code> and see what you get!
-  <br><br>
   <p class='fragment'>
     <accent-text>Note: if you want to exit Python
       type <code>quit()</code> </accent-text>
@@ -74,74 +105,13 @@ image_url: "/assets/session1_slide.png"
 </section>
 
 <section>
-  <p>
-    Another thing to note: Running Python in interactive mode
-    is mainly for <strong>experimenting</strong> with how some code works.
-  </p>
-  <p class="fragment">
-    So, to run any Python code we will be writing in files for the rest of
-    the course, make sure your terminal is <strong>not</strong> in this mode!
-  </p>
-  <p class="fragment"> Otherwise your code won't work!</p>
-</section>
-
-<section>
-  <h3>What will we be doing during this course?</h3>
-  <img src="./assets/webapp.png" alt="web app">
-  <img src="./assets/html.png" alt="html logo">
-</section>
-
-<section>
-  <h3><i class="fa fa-cogs" aria-hidden="true"></i>
-    Hands on: Creating your first script</h3>
-  Open your text editor and create a new script called
-  <strong> hello.py </strong>
-  <hr>
-  Type the following command
-  <pre><code>print("Hello World!")</code></pre>
-  and save the script
-</section>
-
-<section>
-  <h3> <i class="fa fa-code" aria-hidden="true"></i>
-    Time to run your script</h3>
-  <ul>
-    <li> Open your terminal if needed </li>
-    <li> Make sure you are in the file location
-      (if you need to make sure type <code>ls</code>)</li>
-    <li> Type the following command </li>
-    <pre><code>python hello.py</code></pre>
-  </ul>
-</section>
-
-<section data-markdown>
-  Let's add some code to our **hello.py** file to do some cool stuff
-  with strings
-  <br><br>
-  <accent-text> String: collection of characters denoted by " "
-  </accent-text>
-  ```python
-  print('Bob' * 3)
-  print('Bob' + 3)
-  print('hello'.upper())
-  print('GOODBYE'.lower())
-  print("the lord of the rings".title())
-  ```
-  Now run your script from the terminal:
-  ```bash
-  python hello.py
-  ```
-</section>
-
-<section>
-
-  <code>.upper() .lower() .title()</code> are called
-  <strong>methods</strong>
-  <br><br>
-  <p class='fragment'>
-    When attached to a 'string' they tell Python to do some processing
-    on the strings
-  </p>
+  <p>The first thing we'll do is to get Python to print stuff out for us. We can
+  do this by typing the following in the terminal:</p>
+  <div data-markdown>
+    ```python
+    print("Hello, world!")
+    ```
+  </div>
 </section>
 
 <section>
@@ -160,7 +130,7 @@ image_url: "/assets/session1_slide.png"
     print(5 // 2)
     print(5 % 2)
     ```
-    Try it yourself by adding the above to **hello.py** and run it!
+    Try it yourself by typing this into the terminal!
   </div>
 </section>
 
@@ -181,8 +151,7 @@ image_url: "/assets/session1_slide.png"
 </section>
 
 <section>
-  The other related operator from the division operator <code>//</code> is
-  the <code>%</code> modulus operator.
+  The other newly introduced operator is the <code>%</code> modulus operator.
   <p class="fragment">It returns what's left over from an integer division.</p>
   <p class="fragment">
     In our example, <code>5 % 2 = 1 </code>since 5 divides fully into 2 twice,
@@ -191,28 +160,118 @@ image_url: "/assets/session1_slide.png"
 </section>
 
 <section>
-  <h2><i class="fa fa-star" aria-hidden="true"></i>
-    Names & Variables </h2>
-  You can assign a name to a value in Python e.g.
-  <code>age = 25</code>
-  <br>
-  <p class='fragment'>
-    you can change the name at any point
-    <br>
-    <code>age ='still young'</code> </p>
+  <h3>Strings</h3>
+  <p>Strings are collections of characters enclosed in either single or double quotation marks.</p>
+  <p>
+    <code>"Hello, world!"</code>, <code>"123"</code> and <code>"1 lov3 Pyth0n"</code>
+    are all examples of strings.
+  </p>
+  <p>What do you think happens when you try to apply mathematical operators to strings?</p>
+  <div data-markdown>
+    ```
+    "Hello" + "world"
+    "Hello" * 8
+    ```
+  </div>
+  <small class="fragment">
+    <hr>
+    Operators that works differently depending on the data given are known as
+    <strong>overloaded operators</strong>.
+  </small>
 </section>
 
 <section>
-  <h3><i class="fa fa-sticky-note" aria-hidden="true"></i>
+  <h2><i class="fa fa-star" aria-hidden="true"></i>
+    Names & Variables </h2>
+  <p>Sometimes, it is useful to assign a name to values we are working with
+  so we can refer and reuse them later on in our programs.</p>
+  <p class="fragment">
+    This is done by <strong>assigning</strong> the value to a named variable
+    <br>
+    <code>age = 25</code>
+  </p>
+  <p class='fragment'>
+    you can change the name at any point
+    <br>
+    <code>age = "still young"</code> </p>
+</section>
+
+<section>
+  <h3><i class="far fa-file-code" aria-hidden="true"></i>
     Notes on naming variables</h3>
   <ul>
-    <li class='fragment'> Start with lowercase letter:
-      <br><code>chocolate ='yum'</code></li>
-    <li class='fragment'> Use underscore to separate words:
-      <br><code>my_name = 'Tania'</code></li>
-    <li class='fragment'> Use meaningful names:
+    <li class="fragment"> Start with lowercase letter:
+      <br><code>chocolate = "yum"</code></li>
+    <li class="fragment"> Use underscore to separate words:
+      <br><code>my_name = "Darren"</code></li>
+    <li class="fragment"> Use meaningful names:
       <br><code>speed = 100</code> instead of <code>x = 100</code></li>
   </ul>
+</section>
+
+<section>
+  <h3><i class="fa fa-cogs"></i>
+    Task: What we learnt so far
+  </h3>
+  <p>Save the result of a maths operation in a variable, then print it out in your terminal!</p>
+  <hr>
+  <p>Put up your green post-it note when you've figured this out!</p>
+</section>
+
+<section>
+  <h3><i class="fa fa-cogs" aria-hidden="true"></i>
+    Task: Creating your first script</h3>
+  Open your text editor and create a new script called
+  <strong> hello.py </strong>
+  <hr>
+  Type the following command
+  <pre><code>print("Hello World!")</code></pre>
+  and save the script. Make sure you know where you saved it!
+</section>
+
+<section>
+  <h3> <i class="fa fa-code" aria-hidden="true"></i>
+    Time to run your script</h3>
+  <ul>
+    <li> Open your terminal if needed </li>
+    <li>Make sure you are <strong>not in Python</strong></li>
+    <li> Make sure you are in the file location
+      (if you need to make sure type <code>ls</code>)</li>
+    <li> Type the following command </li>
+    <div data-markdown>
+      ```bash
+      python hello.py
+      ```
+    </div>
+  </ul>
+</section>
+
+<section data-markdown>
+  Let's add some code to our **hello.py** file to do some cool stuff
+  with strings
+  <br><br>
+  ```python
+  print('Bob' * 3)
+  print('Bob' + 3)
+  print('hello'.upper())
+  print('GOODBYE'.lower())
+  print("the lord of the rings".title())
+  ```
+  Save what you just added and run your script from the terminal:
+  ```bash
+  python hello.py
+  ```
+</section>
+
+<section>
+
+  <code>.upper() .lower() .title()</code> are called
+  <strong>methods</strong>. They are specific to each Python data type object.
+  <br><br>
+  <p class='fragment'>
+    This means a variable not only holds a value, but it also knows about
+    <strong>the things that you can do to the stored value</strong>.
+  </p>
 </section>
 
 <section data-markdown>
@@ -242,21 +301,25 @@ image_url: "/assets/session1_slide.png"
 </section>
 
 <section>
-  <h2> Extra challenge! </h2>
-  You should all now have a fork of the GitHub repository
-  <i class="fa fa-github" aria-hidden="true"></i>
-  <strong>collaborative.py</strong> script in the
-  <strong>session1</strong> folder.
+  <h3>Tasks</h3>
+  <ol>
+    <li>
+      Use the <code>.count()</code> method on the string
+      <code>"The quick brown fox jumps over the lazy dog."</code>
+      to count the number of times the word <code>"the"</code> appeared.
+      Print this number in your terminal.
+    </li>
+    <li>
+      If 1 is being printed out, how can you fix the sentence string
+      so it prints 2 instead (since there are clearly 2 <code>"the"</code>s!)?
+    </li>
+  </ol>
 </section>
 
 <section>
-  <h2> Extra challenge!</h2>
-  <ul>
-    <li> Add two variables: your name and your favourite food</li>
-    <li> Add a statement to print the variables in a sentence </li>
-    <li> Make sure this runs </li>
-    <li> Create a pull request to the original fork!!!</li>
-  </ul>
+  <h3>Tasks</h3>
+  3. Write a script which stores your name, age and favourite food in variables.
+  Then, print a statement displaying each of those information (be creative!)
 </section>
 
 
@@ -264,3 +327,15 @@ image_url: "/assets/session1_slide.png"
   data-background-video-muted />
   <h2>The end!</h2>
 </section>
+
+<!-- <section>
+  The <a href="https://www.python.org/dev/peps/pep-0020/">
+    Zen of Python</a> summarises the language's core principles.
+  <br><br>
+  Type <code> import this </code> and see what you get!
+  <br><br>
+  <p class='fragment'>
+    <accent-text>Note: if you want to exit Python
+      type <code>quit()</code> </accent-text>
+  </p>
+</section> -->
