@@ -24,7 +24,7 @@ image_url: "/assets/session1_slide.png"
   <ul>
     <li> Python3.x (3.6 preferably)</li>
     <li> Git </li>
-    <li> A text editor: Atom, Sublime </li>
+    <li> A text editor </li>
     <li> GitKraken </li>
     <li> pip </li>
   </ul>
@@ -216,6 +216,68 @@ image_url: "/assets/session1_slide.png"
   <p>Save the result of a maths operation in a variable, then print it out in your terminal!</p>
   <hr>
   <p>Put up your green post-it note when you've figured this out!</p>
+</section>
+
+<section>
+  <h3><i class="fas fa-terminal"></i>
+    The command line (terminal)
+  </h3>
+  <ul>
+    <li>
+      Text-based user interface (UI) to get the computer to do what you want
+      by <strong>writing in commands</strong> in the terminal.
+    </li>
+    <li>
+      Throughout the course, we will be running our Python code via the terminal.
+    </li>
+  </ul>
+</section>
+
+<!-- 'touch' = '$null > 'on Windows -->
+<section>
+  <h3><i class="fas fa-terminal"></i>
+    Where am I?</h3>
+  <p>To find out which folder (the working directory) your terminal is in,
+    type the <code>pwd</code> command.</p>
+  <div data-markdown>
+    ```
+    darren@computer:~$ pwd
+    /home/darren
+    ```
+  </div>
+</section>
+
+<section>
+  <h3><i class="fas fa-terminal"></i>
+    What's in the current folder?
+  </h3>
+  <p>Use the <code>ls</code> command to list files and folders.</p>
+  <div data-markdown>
+    ```
+    darren@computer:~/Documents$ ls
+    project.docx
+    index.html
+    ```
+  </div>
+</section>
+
+<section>
+  <h3><i class="fas fa-terminal"></i>
+    Changing to a different folder
+  </h3>
+  <p>
+    To change the folder the terminal is currently in, use the
+    <code>cd &lt;folder_name&gt;</code> command, replacing <code>&lt;folder_name&gt;</code>
+    with the name of the folder you want to go into.
+  </p>
+  <div data-markdown>
+    ```
+    darren@computer:~$ cd Documents
+    darren@computer:~/Documents$
+    ```
+  </div>
+  <p>Note the text between the <code>:</code> and <code>$</code> have updated,
+    which indicates you have changed directory successfully.</p>
 </section>
 
 <section>
