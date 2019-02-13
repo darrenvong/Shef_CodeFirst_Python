@@ -3,25 +3,34 @@ layout: slide
 title: Collaborating with GitHub
 description: Collaborating with GitHub
 image_url: "/assets/GH_exc.png"
+css: "/css/ghcollaboration.css"
 ---
+
 <section>
   <h2>Collaborating with GitHub</h2>
   <img src="./assets/gh_network.jpg" alt="network">
 </section>
 
+<!-- Comment out scary clown
 <section>
   <video data-autoplay src="./assets/horror.mp4" type='video/mp4'
   width="500px">
   <h3 clss='fragment'>The horror! </h3>
 </section>
 
+-->
+
 <section>
   <img src="./assets/thesis.jpg" alt="thesis" width="500px">
 </section>
 
+
+<!--
 <section>
   <img src="./assets/vc1.png" alt="thesis" width="500px">
 </section>
+
+-->
 
 <section>
   <h2>Version Control</h2>
@@ -36,10 +45,10 @@ image_url: "/assets/GH_exc.png"
 <section>
   <h2>Advantages of Version Control</h2>
   <ul>
-    <li>Can go back to previous version</li>
-    <li>Can work with others without stepping on each others' toes</li>
-    <li>Can add collaborators and contributors</li>
-    <li>Can work from multiple locations </li>
+    <li> Can go back to previous version </li>
+    <li> Can work with others without stepping on each others' toes </li>
+    <li>Can add collaborators and contributors </li>
+    <li> Can work from multiple locations</li>
   </ul>
 </section>
 
@@ -65,27 +74,34 @@ image_url: "/assets/GH_exc.png"
   </ul>
 </section>
 
+
 <section>
   <h2>Git/GitHub terms</h2>
   <ul>
-    <li><strong>Repository [repo]:</strong>
+    <li class="fragment">
+      <strong>Repository [repo]:</strong>
       <img src="./assets/fork.gif" alt="fork" style="float:right;"
       width="400px">
     a project where all of your files are, online or in your laptop</li>
-    <li><strong>Commit:</strong> saving a given version of file(s)</li>
-    <li><strong>Fork:</strong> make a copy of someone's else repository</li>
+    <li class="fragment"
+      ><strong>Commit:</strong> saving a given version of file(s)</li>
+    <li class="fragment">
+      <strong>Fork:</strong> make a copy of someone's else repository</li>
   </ul>
 </section>
 
 <section>
   <h2>Git/GitHub terms</h2>
   <ul>
-    <li><strong>Clone:</strong> copy a repo to your local computer</li>
-    <img src="./assets/merge.png" alt="merge" style="float:right;
-    padding:15px;"
-    width="400px">
-    <li><strong>Pull request:</strong> request to add your changes into a forked repo</li>
-    <li><strong>Merge:</strong> incorporating new changes from a PR/branch</li>
+    <li class="fragment">
+      <strong>Clone:</strong> copy a repo to your local computer</li>
+      <img src="./assets/merge.png" alt="merge" style="float:right;
+      padding:15px;"
+      width="400px">
+    <li class="fragment">
+      <strong>Pull request:</strong> request to add your changes into a forked repo</li>
+    <li class="fragment">
+      <strong>Merge:</strong> incorporating new changes from a PR/branch</li>
   </ul>
 </section>
 
@@ -100,10 +116,158 @@ image_url: "/assets/GH_exc.png"
     <img src="./assets/repo.png" alt="repo">
 </section>
 
+<section>
+  <h2>  Your turn: collaboration with Git </h2>
+  <strong>Learning objectives:</strong>
+    <ul>
+      <li>Install GitKraken and make a Git repository</li>
+      <li>Add a contributor</li>
+      <li>Clone a respository</li>
+      <li>Push a file</li>
+      <li>Pull a file, add changes and push back to respository. </li>
+    </ul>
+</section>
+
+<section>
+    <h2>  Part 1: Creating a repository </h2>
+</section>
+
+<section>
+  <h2>  Getting started </h2>
+  <h3 align="left"><strong>GitKraken</strong></h3align>
+    <p> Installation link: https://www.gitkraken.com/ </p>
+  <h3 align="left"><strong>GitHub account</strong></h3align>
+    <p> Create account:  https://github.com/ </p>
+</section>
+
+<section>
+  <h2>Create a repository!</h2>
+  <strong>Repo name: Your initials + '-cfg-python-project'</strong>
+  <div class="image-float">
+    <span class="fragment fade-in" data-fragment-index="1" style="position: relative; left: 0; top: 0;">
+      <span class="fragment fade-out" data-fragment-index="2">
+        <a><img src="./assets/git_pic/create_repo_0.png"></a>
+      </span>
+    </span>
+    <p class="fragment" data-fragment-index="3" style="position:absolute; left:0px; top:0px;">
+      <a><img src="./assets/git_pic/create_repo_1.png" width="60%" height="20%" /></a></p>
+    <p class="fragment" data-fragment-index="4" style="position:absolute; left:30px; top:0px;">
+      <a><img src="./assets/git_pic/create_repo_2.png" /></a></p>
+  </div>
+</section>
+
+<section>
+  <h2> Cloning your new repository </h2>
+    <h4><strong> On GitKraken go to File -> Clone repo </strong></h4>
+    <p class="fragment" data-fragment-index="2" style="position:relative; left:0px; top:0px;">
+        <a><img src="./assets/git_pic/clone_repo_2.png" width="80%" alt="clone_repo_1"></a></p>
+    <p class="fragment" data-fragment-index="3" style="position:absolute; left:0px; top:200px;">
+        <a><img src="./assets/git_pic/clone_repo_1.png" width="100%" height="20%" /></a></p>
+</section>
+
+<section>
+    <h2> Opening your new repository </h2>
+    <h4><strong> On GitKraken go to File -> Open repo </strong></h4>
+    <p class="fragment" data-fragment-index="1" style="position:relative; left:0px; top:0px;">
+      <a><img src="./assets/git_pic/open_repo_1.png" width="80%"></a></p>
+
+    <span class="fragment" data-fragment-index="2" style="position: absolute; left: 0; top: 150px;">
+          <span class="fragment fade-out" data-fragment-index="3">
+            <a><img src="./assets/git_pic/open_repo_2.png" width="80%"></a>
+    </span>  
+    <p class="fragment" data-fragment-index="4" style="position:absolute; left:0px; top:100px;">
+      <a><img src="./assets/git_pic/open_repo_3.png" width="100%" height="20%" /></a></p>  
+  </section>
+
+
+<section>
+  <h2> Preparing to push your first file </h2>
+  <h4><strong>Move a python file into your new repo folder </strong></h4>
+  <a><img src="./assets/git_pic/push_file_0.png" width="130%"></a>
+</section>
+
+<section>
+  <h2> Preparing to push your first file </h2>
+  <h4><strong> Staging the file </strong></h4>
+
+  <span class="fragment fade-out" data-fragment-index="1">
+    <a><img src="./assets/git_pic/push_file_1.png" width="80%"></a>
+  </span> 
+
+  <span class="fragment fade-in" data-fragment-index="2" style="position: absolute; left: 0; top: 100;">
+    <span class="fragment fade-out" data-fragment-index="3">
+      <a><img src="./assets/git_pic/push_file_2.png" width="80%"></a>
+    </span>
+  </span>    
+
+  <span class="fragment fade-in" data-fragment-index="4" style="position: absolute; left: 0; top: 100;">
+      <a><img src="./assets/git_pic/push_file_3.png"></a>
+  </span> 
+</section>
+
+<section>
+  <h2>  Pushing: Add your first file. </h2>
+  <p class="fragment" data-fragment-index="1">
+    <a><img src="./assets/git_pic/push_file_4.png" ></a>
+  </p> 
+  <p class="fragment " data-fragment-index="2" style="position: absolute; left: 50px; top: 100px;">
+    <a><img src="./assets/git_pic/push_file_5.png"></a>
+  </p> 
+</section>
+
+<section>
+    <h2>  Part 2: Collaborative coding </h2>
+</section>
+
+<section>
+  <h2>  Let's add a collaborator... </h2>
+  <h4><strong> Back to GitHub: </strong></h4>
+    <img src="./assets/git_pic/collab_1.png" alt="repo">
+</section>
+
+<section>
+  <h2>  Let's add a collaborator... </h2>
+  <h4><strong> Agreeing to collaborate... check your emails! </strong></h4>
+  <p class="fragment" data-fragment-index="1">
+    <a><img src="./assets/git_pic/collab_2.png" width="60%"></a>
+  </p>
+  <p class="fragment" data-fragment-index="2" style="position: absolute; left: 50px; top: 200px;">
+    <a><img src="./assets/git_pic/collab_3.png" width="80%"></a>
+  </p> 
+  </section>
+
+<section>
+  <h2>  Clone each others repositories and add to GitKraken! </h2>
+  <ul>
+    <li>Follow previous slides on how to clone</li>
+    <li>Use the URL of your buddy's repo from GitHub</li>
+  </ul>
+  <a><img src="./assets/git_pic/collab_4.png" width="60%"></a>
+  </section>
+
+<section>
+  <h2> Editing your collaborators files </h2>
+  Let's open one the files in your buddy's repository and make some changes.
+    <img src="./assets/git_pic/edit_file_1.png" alt="repo">
+</section>
+
+<section>
+    <h2> Pushing your changes </h2>
+    Push your changes to your friend's repo. 
+    If you need a reminder look back at the previous slides on staging files and pushing.
+  </section>
+
+<section>
+    <h2> Pull your collaborator's changes </h2>
+    Re-open your own repository and 'pull' new changes from Github.
+    Open the file to see what your collaborator has changed.
+      <img src="./assets/git_pic/pull_edit.png" alt="repo">
+  </section>
 
 <section>
   <h2><i class="fa fa-bomb" aria-hidden="true"></i>
-      Homework challenge!</h2>
+      Homework challenges!</h2>
+  Create a new file with the following in python code and push to your repo:
   <ul>
     <li> Add two variables: your name and your favourite food</li>
     <li> Add a statement to print the variables in a sentence </li>

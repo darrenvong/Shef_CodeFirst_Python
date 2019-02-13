@@ -1,0 +1,10 @@
+.image-float {
+  float: left;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.reveal .content-aside {
+  margin-top: 1em;
+}
