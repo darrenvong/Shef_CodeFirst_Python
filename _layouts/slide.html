@@ -64,6 +64,17 @@
           { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
         ]
       });
+
+      // If debug flag is included, clicking on slide triggers an alert showing
+      // you what the current slide number is.
+      if (location.href.indexOf('debug=1') !== -1) {
+        document.addEventListener('DOMContentLoaded', function(e) {
+          document.querySelector('.slides').addEventListener('click', function(e) {
+            const currentSlideIndex = Reveal.getIndices().h;
+            alert('The current slide index is ' + currentSlideIndex);
+          })
+        });
+      }
     </script>
   </body>
   </html>

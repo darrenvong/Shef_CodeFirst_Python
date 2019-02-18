@@ -84,6 +84,13 @@ css: "/css/session3.css"
   <em>
     Be careful not to overwrite built-in Python functions like <strong>print</strong>!
   </em>
+  <p class="fragment">i.e. <strong>Don't</strong> do this!</p>
+  <div class="fragment" data-markdown>
+    ```python
+    def print(text):
+      print(text)
+    ```
+  </div>
 </section>
 
 <section>
@@ -125,12 +132,12 @@ css: "/css/session3.css"
   <p>Replace the content of <strong>session2_recap.py</strong> with the following:</p>
   <div data-markdown>
     ```python
-    instructors = ["Darren", "Nina", "Simon"]
+    instructors = ["Darren", "Kat", "Laura", "Ashwani", "Adam"]
     print(f"The second instructor in the list is {instructors[1]}")
     ```
   </div>
   <p>
-    It should print <strong>The second instructor in the list is Nina</strong>.
+    It should print <strong>The second instructor in the list is Kat</strong>.
   </p>
 </section>
 
@@ -223,22 +230,21 @@ css: "/css/session3.css"
   </h3>
   <p>
     Before we cover <strong>Flask</strong> in more details, there are some important concepts we need to go
-    through first...
+    through first, such as...
   </p>
-  <p class="fragment">So for the time being:</p>
-  <p class="fragment">
-    <strong>Flask</strong> is a framework (more on what that means later)
-    which allows us to control <strong>our server</strong> using Python.
-  </p>
+  <ul>
+    <li class="fragment">What's a server, and why do we need it?</li>
+    <li class="fragment">What happens when we visit a web page in our browser?</li>
+  </ul>
 </section>
 
 <section>
-  <h3><i class="fa fa-lightbulb-o"></i>
-    Why do we need/use a server?
+  <h3><i class="far fa-lightbulb"></i>
+    Why do we need/use a (web) server?
   </h3>
   <p>
     A server is used so we can <strong>share our web application</strong>
-    with the world over the Internet.
+    with the world <strong>over some network</strong>.
   </p>
   <p class="fragment">
     But... <strong><em>how</em></strong> does it help make our application accessible over the Internet?
@@ -252,7 +258,7 @@ css: "/css/session3.css"
 <section>
   <div style="position:relative;">
     <img src="assets/req_res_cycle.png" alt="The Request-Response Cycle">
-    <strong><p id="req-url" class="fragment">https://pawlean.com</p></strong>
+    <strong><p id="req-url" class="fragment">https://google.com</p></strong>
     <div id="res" class="fragment">
       <strong><p style="margin:0;">&lt;!DOCTYPE html&gt;</p></strong>
       <strong><p style="margin:0;">&lt;html&gt;...&lt;/html&gt;</p></strong>
@@ -302,8 +308,9 @@ css: "/css/session3.css"
       people that <strong>we can re-use</strong>
     </li>
     <li>
-      It's better to use Flask's code, rather than writing our own, to handle the requests
-      and responses we talked about earlier since <strong>it's quite complicated!</strong>
+      It's better to use Flask to handle the <strong>requests</strong>
+      and <strong>responses</strong> we talked about earlier, rather than writing our own,
+      since <strong>it's quite complicated!</strong>
     </li>
     <li>
       Re-using Flask's code allows us to jump straight into designing and building
@@ -319,7 +326,7 @@ css: "/css/session3.css"
 <section>
   <ul>
     <li>
-      When we first start a Flask program, it starts up <strong>a server</strong> which we have
+      When we first start a Flask program, it starts up a <strong>web server</strong> which we have
       control over using Python.
     </li>
     <li class="fragment">
@@ -342,38 +349,31 @@ css: "/css/session3.css"
 <section id="git-hands-on">
   <h3>
     <i class="fa fa-cogs" aria-hidden="true"></i>
-    Hands on: our first git repo
+    Task: our first git repo
   </h3>
   <p>
     Before we begin with our first Flask app, we'll set up a new git repository
     together to make sure your app has the <strong>right folder structure</strong>
     that can be used for your competition entry.
   </p>
-  <p class="fragment">We'll follow this step by step guide on how to create a new repository
-    <a href="https://github.com/darrenvong/shefcodefirst-python/blob/master/git-with-gitkraken.md"
+  <p class="fragment">
+    We'll be following the same steps on how to create and clone your repository as covered in the
+    <a href="https://darrenvong.github.io/shefcodefirst-python/collaborating_GH.html"
         target="_blank">
-      here
+      Collaborating with GitHub
     </a>
-    up to and including the <strong>Cloning your repository to your laptop</strong> section.
+    slides.
   </p>
   <p class="fragment">
     Name your repository
-    <strong>cfg-python-project</strong> or similar on GitHub.
+    <strong>"cfg-python-project-" + your initials</strong> on GitHub.
   </p>
 </section>
 
 <section>
-  Assuming you called your repo <strong>cfg-python-project</strong>, inside the repo folder,
-  create more files and folders in here until it structurally looks like this:
-  <code><pre style="width: 100%;">
-~/cfg-python-project
-|-- /templates  # HTML template files go in here
-|-- index.html  # You need to make this in your text editor
-|-- /static  # everything else (CSS, JS, images etc) goes in here
-|-- app.py   # You need to make this in your text editor
-|-- README.md   # generated by GitHub
-|-- .gitignore  # generated by GitHub
-  </pre></code>
+  Inside the repo folder, create more files and folders in here until it structurally
+  looks like this:
+  <img src="assets/flask_app_folder_structure.png" id="folder-structure">
   <p><strong><i class="fa fa-exclamation-triangle"></i></strong>
     It's <strong>very important</strong> you name the folders <strong>exactly</strong>
     the way they are shown in this diagram!
@@ -384,7 +384,7 @@ css: "/css/session3.css"
   <h3>Creating new files and folders in the repo</h3>
   <p>
     The easiest way to create the files and folders is to have the repo folder
-    opened in your text editor (Atom/Sublime Text).
+    opened in your text editor.
   </p>
   <p class="fragment">
     Your text editor also provides a <strong>more reliable</strong> way to check that your
@@ -408,6 +408,34 @@ css: "/css/session3.css"
     to create new files and folders as needed to match the required folder structure shown
     before.
   </p>
+</section>
+
+<section>
+  <h3><i class="far fa-folder"></i>
+    Flask app folder structure
+  </h3>
+  <ul>
+    <li><strong>templates</strong> (folder) - HTML (template) files go in here</li>
+    <li><strong>static</strong> (folder) - everything else (CSS, JavaScript, images etc) go in here</li>
+    <li>
+      <strong>app.py</strong> (file) - the file containing the Python code that uses Flask to start up
+      a server
+    </li>
+  </ul>
+</section>
+
+<section>
+  <ul>
+    <li>
+      <strong>README.md</strong> (file) - a text file describing what the
+      repo is about, with instructions on how to run the code for others who may be interested
+      in working on the project.
+    </li>
+    <li>
+      <strong>.gitignore</strong> (file) - a text file listing files/folders
+      <strong>containing secrets</strong> we <strong>don't</strong> want to commit to Git.
+    </li>
+  </ul>
 </section>
 
 <section id="html-template">
@@ -439,7 +467,7 @@ css: "/css/session3.css"
 <section>
   <h3>
     <i class="fa fa-cogs" aria-hidden="true"></i>
-    Hands on: our first Flask program
+    Task: our first Flask program
   </h3>
 </section>
 
@@ -449,7 +477,7 @@ css: "/css/session3.css"
     ```python
     from flask import Flask
 
-    app = Flask("my_first_app")
+    app = Flask(__name__)
 
     @app.route("/")
     def say_hello():
@@ -459,8 +487,8 @@ css: "/css/session3.css"
     ```
   </div>
   <p>
-    Then, start the app by the usual drift: <code>cd</code> into the
-    <strong>cfg-python-project</strong> folder and type
+    Then, start the app by the usual drift: <code>cd</code> to change your terminal
+    into the repo folder, then type
     <code>python app.py</code></p>
 </section>
 
@@ -598,7 +626,7 @@ css: "/css/session3.css"
     ```python
     from flask import Flask, render_template
 
-    app = Flask("my_first_app")
+    app = Flask(__name__)
 
     @app.route("/")
     def say_hello():
@@ -637,7 +665,7 @@ css: "/css/session3.css"
 <section>
   <p>
     Create a new CSS file called <strong>app.css</strong> inside the
-    static folder, then put in something like this in the CSS file:
+    <strong>static</strong> folder, then put in something like this in the CSS file:
   </p>
   <div data-markdown>
     ```css
@@ -687,19 +715,19 @@ css: "/css/session3.css"
   </small>
   <ol>
     <li>
-      Write a function, then bind the function to an appropriate routing pattern,
+      Write a function, then decorate it with an appropriate routing pattern,
       so that when you visit <code>localhost:5000/whatever</code> with <strong>any value</strong>
       in the "whatever" part, it won't lead to an error page.
     </li>
     <li>
-      Write a function, then bind the function to an appropriate routing pattern,
+      Write a function, then decorate it with an appropriate routing pattern,
       so that when you visit <code>localhost:5000/1/2</code>, you can <strong>easily capture</strong>
       the sum of the two numbers after the first slash and return it onto the page.
     </li>
   </ol>
   <hr>
   <a href="#/bonus-exercises-2"><small>More exercise</small></a>
-  <a href="#/completed-first-app">
+  <a href="#/3">
     <small>Go back</small>
   </a>
 </section>
@@ -716,7 +744,7 @@ css: "/css/session3.css"
   </p>
   <hr>
   <a href="#/bonus-exercises-3"><small>More exercises</small></a>
-  <a href="#/completed-first-app">
+  <a href="#/3">
     <small>Go back</small>
   </a>
 </section>
@@ -733,7 +761,7 @@ css: "/css/session3.css"
     such that the HTML, CSS and JavaScript files would load in correctly with Flask!
   </p>
   <hr>
-  <a href="#/completed-first-app">
+  <a href="#/3">
     <small>Go back</small>
   </a>
 </section>
