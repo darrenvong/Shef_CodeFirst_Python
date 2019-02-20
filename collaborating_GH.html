@@ -255,14 +255,50 @@ css: "/css/ghcollaboration.css"
     <h2> Pushing your changes </h2>
     Push your changes to your friend's repo. 
     If you need a reminder look back at the previous slides on staging files and pushing.
-  </section>
+</section>
 
 <section>
     <h2> Pull your collaborator's changes </h2>
     Re-open your own repository and 'pull' new changes from Github.
     Open the file to see what your collaborator has changed.
       <img src="./assets/git_pic/pull_edit.png" alt="repo">
+</section>
+
+<section>
+    <h2> Bonus: Merge conflicts</h2>
+      <img src="./assets/git_pic/merge_conflict_0.png" alt="repo">
+</section>
+ 
+<section>
+    <h2> What is a merge conflict?</h2>
+    <p>Merge conflicts happen when you merge branches that have competing commits.</p>
+    What can we do about this?
+    <ul>
+      <li>Git can resolve the merge if the changes are to different files or different lines of code. </li>
+      <li>In other scenarios, Git needs your help to decide which changes to keep in the final merge and which to discard.</li>
+    </ul>
   </section>
+
+<section>
+    <h2> Create a merge conflict </h2>
+  Let's create a merge conflict then resolve it.
+  <ul>
+    <li> Go to the hello_world file in your <strong> collaborator's repo. </strong> </li>
+    <li> Make a change to the first line of text and push it on Gitkraken.</li>
+    <li> Now, go to the hello_world file <strong> in your repo </strong> and make a change to the first line of text.</li>
+    <li> Try pulling or pushing the file on Gitkraken. </li>
+    <li> What happens? </li>
+  </ul>
+</section>
+
+<section>
+  <h2> Resolving a merge conflict </h2>
+  Follow the instructions on 'Merge Conflicts' here:
+  <p class='fragment grow'>
+    <a href="  https://darrenvong.gitbooks.io/code-first-girls-advanced-python-course/content/git-with-gitkraken.html">
+      https://darrenvong.gitbooks.io/code-first-girls-advanced-python-course/content/git-with-gitkraken.html</a></p>
+
+</section>
 
 <section>
   <h2><i class="fa fa-bomb" aria-hidden="true"></i>
