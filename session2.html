@@ -164,11 +164,45 @@ css: "/css/session2.css"
 </section>
 
 <section>
+  <h3>Example of functions 1</h3>
+  <p> We could use a function to calculate the mean of different number pairs. </p>
+  <div data-markdown>   
+    # function body
+    def calculate_mean(number1, number2):
+      answer = (number1 + number2) / 2
+      print("The mean of {} and {} is {}.".format(number1, number2, answer))
+
+    # run function for different number pairs 
+    calculate_mean(5, 10)
+    calculate_mean(1, 11)
+    calculate_mean(1, 12)
+  </div>
+  Running the file in our terminal will give us the following output:
+  The mean of 5 and 10 is 7.5.
+</section>
+
+<section>
+  <h3>Example of functions 2</h3>
+  <p> Creating a sentence from given words</p>
+  <div data-markdown>   
+    # function body 
+    def welcome_user(name, location):
+      print("Hi {} from {}!".format(name, location))
+
+    # run function for different names and locations
+    welcome_user("Sophie", "Manchester")
+    welcome_user("Darren", "Sheffield")
+    welcome_user("Catherine", "London")
+    </div>
+    Running the file would display 'Hi Sophie from Manchester!'
+</section>
+
+<section>
   Create a new file called <strong>my_first_function.py</strong> and enter the following
   <div data-markdown>
-    ```python
+    ```
     def hello_world():
-    print("Hello World!")
+      print("Hello World!")
 
     hello_world()
     hello_world()
@@ -220,10 +254,10 @@ css: "/css/session2.css"
   <div data-markdown>
     ```python
     def add_two_numbers():
-    number1 = 1
-    number2 = 2
-    answer = number1 + number2
-    print("{} plus {} is {}".format(number1, number2, answer))
+      number1 = 1
+      number2 = 2
+      answer = number1 + number2
+      print("{} plus {} is {}".format(number1, number2, answer))
 
     add_two_numbers()
     ```
@@ -237,8 +271,8 @@ css: "/css/session2.css"
   <div data-markdown>
     ```python
     def add_two_numbers_from_args(number1, number2):
-    answer = number1 + number2
-    print"{} plus {} is {}".format(number1, number2, answer)
+      answer = number1 + number2
+      print("{} plus {} is {}".format(number1, number2, answer))
 
     add_two_numbers_from_args(5, 10)
     add_two_numbers_from_args(1, 11)
@@ -265,13 +299,13 @@ css: "/css/session2.css"
   <div data-markdown>
     ```python
     def add_two_numbers_and_return_value():
-    number1 = 1
-    number2 = 2
-    answer = number1 + number2
-    return answer
+      number1 = 1
+      number2 = 2
+      answer = number1 + number2
+      return answer
 
     returned_value = add_two_numbers_and_return_value()
-    print (returned_value)
+    print(returned_value)
     ```
   </div>
   <p><strong>Extra challenge</strong>: change the function to return the result of adding two arguments together</p>
@@ -327,11 +361,11 @@ css: "/css/session2.css"
     my_shopping_cart = ["cake", "plates", "plastic forks", "juice", "cups"]
 
     for item in my_shopping_cart:
-    print (item)
+      print(item)
 
     for x in my_shopping_cart:
-    print("hello!")
-    print(x)
+      print("hello!")
+      print(x)
     ```
   </div>
   <hr>
@@ -350,12 +384,18 @@ css: "/css/session2.css"
   <div data-markdown>
     ```python
     number = input("Enter a number between 1 and 10: ")
+    
+    print(number)
+
     number = int(number)
 
     if number > 10:
-    print("Too high!")
+      print("Too high!")
 
-    if number <= 0: print("Too low!") ``` </div> <hr>
+    if number <= 0: 
+      print("Too low!") 
+    ``` 
+  </div> <hr>
       <a href="#/logic-exercises">
         <small>Finished already? Here are some additional exercises for you to do!</small>
       </a>
