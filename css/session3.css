@@ -25,12 +25,14 @@
 #git-hands-on p,
 #flask-explain p,
 #bonus-exercises-2 p,
-#bonus-exercises-3 p {
+#bonus-exercises-3 p,
+#host-explanation p {
   font-size: 90%;
 }
 
 #html-template pre,
-#css-include pre {
+#css-include pre,
+.reveal pre {
   width: 100%;
 }
 
