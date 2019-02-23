@@ -83,7 +83,7 @@ SyntaxError: invalid syntax
                 downloaded.
               </p>
               <p>
-                To run your cdoe with Python 3.6 you've installed, try
+                To run your code with Python 3.6 you've installed, try
                 <code>python3.6 hello.py</code> instead of <code>python hello.py</code>.
               </p>
             </td>
@@ -110,7 +110,7 @@ SyntaxError: invalid syntax
                 will be using throughout this course to backup and work on code together.</p>
               <p>
                 <strong>Git bash</strong> allows you to interact with git through the
-                command prompt/Powershell, whereas <strong>GitKraken</strong>
+                Command Prompt/Powershell, whereas <strong>GitKraken</strong>
                 allows you to do the same thing through a pretty and more friendly
                 graphical user interface.
               </p>
@@ -143,7 +143,9 @@ SyntaxError: invalid syntax
               </p>
               <p>
                 To overcome the issue, if you haven't already, I recommend you install Python 3.6
-                using the Mac OS X installer <a href="https://www.python.org/" target="_blank">here</a>.
+                using the
+                <a href="https://www.python.org/ftp/python/3.6.8/python-3.6.8-macosx10.9.pkg"
+                  target="_blank">Mac OS X installer here</a>.
               </p>
               <p>
                 If you're using a Linux-based OS... then try installing Python 3.6 by setting up
@@ -159,6 +161,18 @@ SyntaxError: invalid syntax
               </p>
             </td>
           </tr>
+          <tr>
+            <td><em>(Windows only)</em> What is the difference between the
+              <strong>Command Prompt</strong> and <strong>Powershell</strong>?
+            </td>
+            <td>
+              They are both text-based user interface where you can get the computer
+              to do something by typing in commands. The main difference is that Powershell
+              is kind of the new Command Prompt, and uses commands more similar to the terminal
+              on Mac/Linux computers. For that reason alone, I recommend using Powershell
+              over the Command Prompt.
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -166,7 +180,7 @@ SyntaxError: invalid syntax
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <h3 class="title">Flask</h3>
-      <table class="table">
+      <table class="table" style="table-layout: fixed;">
         <thead>
           <tr>
             <th scope="col">Question</th>
@@ -174,6 +188,18 @@ SyntaxError: invalid syntax
           </tr>
         </thead>
         <tbody>
+          <tr>
+            <td>
+              Why can I access my web app by visiting <code>localhost:5000</code> in the
+              browser, even though in the terminal it says the app is running on
+              <code>127.0.0.1:5000</code>?
+            </td>
+            <td>
+              <code>localhost</code> is the user friendly name for <code>127.0.0.1</code>.
+              Our browser uses that to look up and translate back into the numeric web address
+              (known as the IP address), which it then uses to reach our web app.
+            </td>
+          </tr>
           <tr>
             <td>
               Why do I get an error page with the following message on the page (along with
@@ -230,7 +256,7 @@ NameError: name 'render_template' is not defined
           </tr>
           <tr>
             <td>
-              Why do I get the following error (together with a long trackback above) when I try to run my Flask app in
+              Why do I get the following error (together with a long traceback above) when I try to run my Flask app in
               the terminal?
               <pre>
 <code>

@@ -10,13 +10,13 @@ css: "/css/session3.css"
     <span style="margin-left: 10px">together</span> (Part 1)
   </h2>
   <p>Linking together the back-end with the front-end</p>
-  <!-- <p class='author'> Darren Vong
+  <p class='author'> Darren Vong
     <br>
     <a href="http://twitter.com/mrdarrenv" target="_blank">
-      <i class="fa fa-twitter" aria-hidden="true">
+      <i class="fab fa-twitter" aria-hidden="true">
       </i> @mrdarrenv
     </a>
-  </p> -->
+  </p>
 </section>
 
 <section>
@@ -50,7 +50,26 @@ css: "/css/session3.css"
     If at any point during this session you are finished with the live
     coding exercises we are doing...
   </p>
-  <p>... then check out the bonus exercises <a href="#/bonus-exercises">here</a>!</p>
+  <p>... then check out the bonus exercises linked in each section.</p>
+</section>
+
+<section>
+  <h3>What am I going to learn today?</h3>
+  <ul>
+    <li>The basics of working with a dictionary</li>
+    <li>What happens when we visit a web page in our browser?</li>
+    <li>
+      Using Flask to:
+      <ul>
+        <li>Start a web server to run a website/web app</li>
+        <li>
+          Control exactly how a web server behaves when we access the app over
+          a certain URL
+        </li>
+      </ul>
+    </li>
+    <li>Using HTML/CSS together with Flask!</li>
+  </ul>
 </section>
 
 <section>
@@ -109,8 +128,8 @@ css: "/css/session3.css"
     ```
   </div>
   <p>
-    It should print <strong>Hello world!</strong> followed by
-    <strong>9</strong> on the next line.
+    It should print <code>Hello world!</code> followed by
+    <code>9</code> on the next line.
   </p>
 </section>
 
@@ -137,7 +156,7 @@ css: "/css/session3.css"
     ```
   </div>
   <p>
-    It should print <strong>The second instructor in the list is Kat</strong>.
+    It should print <code>The second instructor in the list is Kat</code>.
   </p>
 </section>
 
@@ -154,20 +173,47 @@ css: "/css/session3.css"
 </section>
 
 <section>
+  <h3>What is a dictionary?</h3>
+  <p>
+    It is a data structure where each <strong>value</strong> in it is linked to a
+    <strong>key</strong>.
+  </p>
+  <div data-markdown>
+    ```python
+    people = {
+      "instructor1": "Darren",
+      "instructor2": "Laura"
+    }
+    ```
+  </div>
+  <div class="fragment">
+    That means values in a dictionary can be retrieved using the key like so:
+    <div data-markdown>
+      ```python
+      people["instructor1"] # Darren
+      ```
+    </div>
+  </div>
+</section>
+
+<section>
   <p>Replace the content of <strong>session2_recap.py</strong> with the following:</p>
   <div data-markdown>
     ```python
-    member = {"name": "Darren", "favourite_language": "Python"}
-    for key, value in member.items():
+    instructor = {
+      "name": "Darren",
+      "favourite_language": "Python"
+    }
+    for key, value in instructor.items():
       # replaces underscores with spaces so it reads nicer
       key = key.replace("_", " ")
 
-      print(f"The member's {key} is {value}.")
+      print(f"The instructor's {key} is {value}.")
     ```
   </div>
   <p>
-    It should print <strong>The member's name is Darren.</strong> followed by
-    <strong>The member's favourite language is Python.</strong>
+    It should print <code>The instructor's name is Darren.</code> followed by
+    <code>The instructor's favourite language is Python.</code>
   </p>
 </section>
 
@@ -193,13 +239,13 @@ css: "/css/session3.css"
     if age < 18:
       print("You are too young to drink! Naughty!")
     elif age > 65:
-      print("You're old... maybe you should chill out on drinking!")
+      print("Maybe you shouldn't drink so much now...")
     else:
       print("Drink responsibly (if you must)!")
     ```
   </div>
   <p>
-    It should print <strong>Drink responsibly (if you must)!</strong>
+    It should print <code>Drink responsibly (if you must)!</code>
   </p>
 </section>
 
@@ -213,15 +259,6 @@ css: "/css/session3.css"
     Specifically, in the next two sessions, we'll be looking at how to have
     more control of the back-end using <strong>Flask</strong>!
   </p>
-</section>
-
-<section>
-  <h3>What is Flask?</h3>
-</section>
-
-<section>
-  <div><img src="assets/flask.webp" alt="Jokey flask"></div>
-  <em class="fragment">Alright, it's not quite the same kind of flask that Cumberbatch is holding...</em>
 </section>
 
 <section>
@@ -294,11 +331,6 @@ css: "/css/session3.css"
 </section>
 
 <section>
-  <h3>And now...</h3>
-  <p>Let's talk about <strong>Flask</strong> for real this time!</p>
-</section>
-
-<section>
   <h3><i class="fa fa-server" aria-hidden="true"></i>
     What is Flask?
   </h3>
@@ -330,7 +362,7 @@ css: "/css/session3.css"
       control over using Python.
     </li>
     <li class="fragment">
-      Users can then access our website in their browser!
+      We can then access our website in our browser!
     </li>
     <li class="fragment">
       Instead of returning some HTML <strong>directly</strong>, Flask
@@ -349,7 +381,7 @@ css: "/css/session3.css"
 <section id="git-hands-on">
   <h3>
     <i class="fa fa-cogs" aria-hidden="true"></i>
-    Task: our first git repo
+    Task: create a Flask git repository
   </h3>
   <p>
     Before we begin with our first Flask app, we'll set up a new git repository
@@ -370,7 +402,7 @@ css: "/css/session3.css"
   </p>
 </section>
 
-<section>
+<section id="pre-flask">
   Inside the repo folder, create more files and folders in here until it structurally
   looks like this:
   <img src="assets/flask_app_folder_structure.png" id="folder-structure">
@@ -378,6 +410,10 @@ css: "/css/session3.css"
     It's <strong>very important</strong> you name the folders <strong>exactly</strong>
     the way they are shown in this diagram!
   </p>
+  <hr>
+  <a href="#/pre-flask-bonus">
+    <small>Already done? Here are some additional exercises for you to do!</small>
+  </a>
 </section>
 
 <section>
@@ -525,7 +561,7 @@ css: "/css/session3.css"
     it first before we can use it.
   </p>
   <p class="fragment">
-    The next line creates a new instance of a Flask app
+    The next line creates a new copy of a Flask app
     that we can then work with.
   </p>
 </section>
@@ -533,12 +569,12 @@ css: "/css/session3.css"
 <section id="flask-explain">
   <p>
     The <code>@app.route("/")</code> line (which has to be above a function definition)
-    <strong><i class="fa fa-rocket" aria-hidden="true"></i></strong> a normal Python
+    decorates our normal Python
     function so that it's capable of responding to our request at
     <code>localhost:5000</code>
   </p>
   <p class="fragment">
-    The final <code>app.run(debug=True)</code> line starts up a server
+    The final <code>app.run(debug=True)</code> line starts up a web server
     controllable by Flask each time we type <code>python app.py</code> in the
     terminal. 
   </p>
@@ -554,7 +590,7 @@ css: "/css/session3.css"
   <img class="fragment" src="assets/404.png" alt="Web page not found">
 </section>
 
-<section>
+<section id="host-explanation">
   <p>We got a <strong>Not Found</strong> error as we haven't specified in our
   code on how to respond to <code>localhost:5000/qwerty</code>.</p>
   <p class="fragment">
@@ -562,13 +598,15 @@ css: "/css/session3.css"
     so why did that work?
   </p>
   <p class="fragment">
-    That's because Flask uses <strong>relative URLs</strong>, which means the <code>"/"</code>
+    That's because Flask uses <strong>relative URLs</strong>, and by default runs (hosts)
+    the app at <code>localhost</code> under port 5000.
+    This means the <code>"/"</code>
     in <code>app.route("/")</code> translates to <code>localhost:5000/</code>!
   </p>
   <small class="fragment">
     <hr>
     If there's nothing after the first single slash, most browsers (confusingly!)
-    hide them by default. This means <code>localhost:5000</code> is the same as
+    hide them by default - i.e. <code>localhost:5000</code> is the same as
     <code>localhost:5000/</code>!
   </small>
 </section>
@@ -577,7 +615,7 @@ css: "/css/session3.css"
   <h3>Routing</h3>
   <p>
     Flask uses relative URL so our app will <strong>work in a consistent way</strong>, no matter
-    where it's hosted.
+    where it's being hosted.
   </p>
   <p class="fragment">
     To find out the relative URL of a web address, look out for the value <strong>after the
@@ -642,7 +680,7 @@ css: "/css/session3.css"
   <small class="fragment">
     <hr>
     If you're using Chrome, you might have to press
-    Ctrl/Cmd + Shift + R to do a "hard refresh" before you see the changes!
+    <strong>Ctrl/Cmd + Shift + R</strong> to do a "hard refresh" before you see the changes!
   </small>
 </section>
 
@@ -691,7 +729,7 @@ css: "/css/session3.css"
   </div>
   {% endraw %}
   <p class="fragment">
-    The <strong>url_for</strong> function comes from Flask; it allows
+    The <code>url_for</code> function comes from Flask: it ensures
     full URLs to resources (CSS, JavaScript) to always be
     <strong>generated correctly</strong>...
   </p>
@@ -707,11 +745,29 @@ css: "/css/session3.css"
   <h2>The end!</h2>
 </section>
 
+<section id="pre-flask-bonus">
+  <h3>Creating git repository: bonus exercises</h3>
+  <ol>
+    <li>
+      Read
+      <a href="https://medium.com/@haydar_ai/learning-how-to-git-ignoring-files-and-folders-using-gitignore-177556afdbe3" target="_blank">
+        this article
+      </a>
+      to learn more about how to use a <code>.gitignore</code> file in your git repository!
+    </li>
+    <li>If you haven't already, do Exercises 33, 34, 38 and 39 in the LPTHW e-book.</li>
+  </ol>
+  <hr>
+  <a href="#/pre-flask">
+    <small>Go back</small>
+  </a>
+</section>
+
 <section id="bonus-exercises">
-  <h3>Bonus exercises</h3>
+  <h3>Flask: bonus exercises</h3>
   <small>If you're stuck on any of these exercises,
-    <a href="http://flask.pocoo.org/docs/0.12/" target="_blank">this page</a>
-    is likely to contain the answer you're looking for!
+    <a href="http://flask.pocoo.org/docs/1.0/quickstart/" target="_blank">this page</a>
+    is likely to contain the answers you're looking for!
   </small>
   <ol>
     <li>
@@ -727,24 +783,24 @@ css: "/css/session3.css"
   </ol>
   <hr>
   <a href="#/bonus-exercises-2"><small>More exercise</small></a>
-  <a href="#/3">
+  <a href="#/32">
     <small>Go back</small>
   </a>
 </section>
 
 <section id="bonus-exercises-2">
-  <h3>Bonus exercises</h3>
   <p>
     3.* Modify the function in exercise 2, and adapting the simple HTML page we made earlier,
     return the answer with the HTML instead.
   </p>
   <p>
-    4. Modify the function again so that it returns "Not a number" when you visit URLs with
+    4. Write another function, decorate it with an almost identical routing pattern used
+    in exercise 2, so that it returns "Not a number" when you visit URLs with
     non-numerical values after the first slash, like <code>localhost:5000/p/2</code>
   </p>
   <hr>
   <a href="#/bonus-exercises-3"><small>More exercises</small></a>
-  <a href="#/3">
+  <a href="#/32">
     <small>Go back</small>
   </a>
 </section>
@@ -761,7 +817,7 @@ css: "/css/session3.css"
     such that the HTML, CSS and JavaScript files would load in correctly with Flask!
   </p>
   <hr>
-  <a href="#/3">
+  <a href="#/32">
     <small>Go back</small>
   </a>
 </section>
