@@ -39,3 +39,9 @@
 #folder-structure {
   width: 40%;
 }
+
+.overlay-image {
+  position: absolute;
+  top: 165%;
+  left: 37%;
+}
