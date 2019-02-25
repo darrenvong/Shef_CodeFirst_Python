@@ -14,7 +14,8 @@
   left: 42.5%;
 }
 
-#bonus-exercises li {
+#bonus-exercises li,
+#pre-flask p {
   font-size: 85%;
 }
 
