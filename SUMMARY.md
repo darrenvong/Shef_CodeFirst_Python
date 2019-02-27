@@ -11,7 +11,7 @@
 * [Session 4](session-4.md)
 * [Session 5](session-5.md)
 * [Session 6](session-6.md)
+* [Judging Criteria](judging-criteria.md)
 * [Appendix A: terminal mini tutorial](terminal.md)
 * [Appendix B: Using Git with GitKraken](git-with-gitkraken.md)
 * [Appendix C: Running the provided web app in your computer](instructions.md)
-
