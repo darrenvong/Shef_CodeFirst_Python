@@ -5,7 +5,7 @@
 - A minimum of one CSS file
 - A minimum of one Python file
 - Some ways in which the user may interact with the app with some input. This can be done by including a HTML form with one or more input fields and a submit button so they can send whatever
-they entered in the input fields back to our server, where you can then do something with it (call an
+they entered in the input fields back to the server, where you can then do something with it (call an
 API, influence some logic in a game etc)
 - Well formatted code - i.e. usage of meaningful variable names & code structured with sufficient space
 such that it's easy to read
