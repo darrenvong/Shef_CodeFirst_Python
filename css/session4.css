@@ -28,6 +28,10 @@
   font-size: 90%;
 }
 
+#bonus-exercises-4 p {
+  font-size: 85%;
+}
+
 #post-request-code pre {
   width: 100%;
 }

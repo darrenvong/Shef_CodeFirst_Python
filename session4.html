@@ -12,6 +12,7 @@
 
     <title>CFG session 4</title>
 
+    <link rel="icon" type="image/png" href="./assets/favicon.png">
     <link rel="stylesheet" href="reveal.js/css/reveal.css">
     <link rel="stylesheet" href="reveal.js/css/theme/white.css">
     <!-- or you can use the dark theme
@@ -47,13 +48,13 @@
             <span style="margin-left: 10px">together</span> (Part 2)
           </h2>
           <p>Linking together the back-end with the front-end</p>
-          <!-- <p class='author'> Darren Vong
+          <p class='author'> Darren Vong
             <br>
             <a href="http://twitter.com/mrdarrenv" target="_blank">
               <i class="fa fa-twitter" aria-hidden="true">
               </i> @mrdarrenv
             </a>
-          </p> -->
+          </p>
         </section>
 
         <section>
@@ -67,6 +68,18 @@
               https://darrenvong.github.io/shefcodefirst-python/</a></p>
         </section>
 
+        <section>
+          <h3><i class="fa fa-sticky-note"></i>
+            Feedback - post-it notes
+          </h3>
+          <p>Throughout the session, put up your:</p>
+          <ul>
+            <li><strong>Green</strong> post-it if you're following everything</li>
+            <li><strong>Red</strong> post-it if you're lost/need help</li>
+          </ul>
+          <p>At the end, write at least one good and bad things about the session on the post-it notes!</p>
+        </section>
+
         <section id="extra">
           <h3><i class="fa fa-plus"></i>
             Bonus exercises!
@@ -75,7 +88,18 @@
             If at any point during this session you are finished with the live
             coding exercises we are doing...
           </p>
-          <p>... then check out the bonus exercises <a href="#/bonus-exercises">here</a>!</p>
+          <p>... then check out the <a href="#/bonus-exercises">bonus exercises here</a>!</p>
+        </section>
+
+        <section>
+          <h3>What am I going to learn today?</h3>
+          <ul>
+            <li>What a template engine is</li>
+            <li>How to write re-usable HTML templates</li>
+            <li>Basics of the Jinja2 templating language</li>
+            <li>Receiving user data/input using a web form over POST requests</li>
+            <li>Doing something with the data received with Flask</li>
+          </ul>
         </section>
         
         <section>
@@ -85,7 +109,7 @@
           <figure style="position: relative;">
             <img src="assets/req_res_cycle.png" alt="The Request-Response Cycle">
             <strong>
-              <p id="req-url">https://pawlean.com</p>
+              <p id="req-url">https://google.com</p>
             </strong>
             <div id="res">
               <strong>
@@ -175,6 +199,8 @@
           </p>
         </section>
 
+        <!-- TO-DO: a small section on importing libraries -->
+
         <section>
           <h3>And now...</h3>
         </section>
@@ -213,7 +239,7 @@
           <ul>
             <li>
               Re-writing (or lots of copy and pasting) common HTML parts each time we make
-              a new page gets <strong>tedious</strong>
+              a new page gets <strong>tedious</strong>.
             </li>
             <li class="fragment">Repetition of code is (generally) a bad idea.</li>
           </ul>
@@ -280,7 +306,7 @@
         <section>
           <h3>
             <i class="fa fa-cogs" aria-hidden="true"></i>
-            Hands on: a Flask program using templates
+            Task: a Flask program using templates
           </h3>
         </section>
 
@@ -367,7 +393,7 @@
         <section>
           <h3>
             <i class="fa fa-cogs" aria-hidden="true"></i>
-            Hands on: Breaking up our HTML templates
+            Task: Breaking up our HTML templates
           </h3>
         </section>
 
@@ -448,7 +474,7 @@
         <section>
           <h3>
             <i class="fa fa-cogs" aria-hidden="true"></i>
-            Hands on: Our first dynamic page
+            Task: Our first dynamic page
           </h3>
           <p>In <strong>app.py</strong>, add in the following before the
             <code>app.run(debug=True)</code> line:
@@ -527,7 +553,7 @@
           </p>
           <p class="fragment">
             In <strong>templates/hello.html</strong>, instead of writing
-            <code>Hello world!</code> between the <strong>h1</strong> tags, we modified it
+            <code>Hello world!</code> between the <strong>h1</strong> tags, we changed it
             to <code>Hello {{ user }}!</code>.
           </p>
           <p class="fragment">
@@ -539,7 +565,7 @@
         <section>
           <h3>Delving further into templates</h3>
           <p>
-            Flask uses a template engine (Jinja2) to build up the <strong>response HTML</strong>.
+            Flask uses a template engine (Jinja2) to <strong>build up the response HTML</strong>.
           </p>
           <p class="fragment">
             Jinja2 extends the power of normal HTML by allowing us to include logic writing
@@ -553,7 +579,7 @@
 
         <section id="jinja2-syntax">
           <h3><i class="fa fa-code"></i>
-            Templates syntax: the basics
+            Templates syntax: using Python statements
           </h3>
           <p>
             To include any Python statements (<strong>if</strong>, <strong>for loops</strong> etc),
@@ -575,11 +601,29 @@
         </section>
 
         <section>
+          <p>
+            Here's an example on how we can print out a list of things with the
+            <strong>same HTML markup</strong> without repeating ourselves:
+          </p>
+          <div data-markdown>
+            ```django
+            &lt;!-- Assume we have a list of fruits in the "basket"
+            variable --&gt;
+            &lt;ul&gt;
+              {% for fruit in basket %}
+                &lt;li&gt;{{ fruit }}&lt;/li&gt;
+              {% endfor %}
+            &lt;/ul&gt;
+            ```
+          </div>
+        </section>
+
+        <section>
           <h3><i class="fa fa-code"></i>
-            Templates syntax: the basics
+            Templates syntax: output things into HTML
           </h3>
           <p>
-            To <strong>output</strong> the value (most likely be a string or some number) of a variable,
+            To <strong>output</strong> the value (most likely a string or some number) of a variable,
             enclose it with a pair of <code>{{ }}</code> as shown below:
           </p>
           <div data-markdown>
@@ -643,8 +687,9 @@
           </div>
           <small>
             <hr>
-            If you want a more comprehensive template reference, visit the official docs
-            <a href="http://jinja.pocoo.org/docs/2.10/templates/">here</a>!
+            If you want a more comprehensive template reference, visit the
+            <a href="http://jinja.pocoo.org/docs/2.10/templates/" target="_blank">
+            official docs here</a>!
           </small>
         </section>
 
@@ -704,10 +749,10 @@
         <section>
           <h3>
             <i class="fa fa-cogs" aria-hidden="true"></i>
-            Hands on: handling POST requests in our Flask program
+            Task: handling POST requests in our Flask program
           </h3>
           <p>
-            In <strong>templates/index.html</strong>, add in the following above the
+            In <strong>templates/index.html</strong>, add in the following before the
             <code>&lt;/body&gt;</code> tag:
           </p>
           <div data-markdown>
@@ -814,8 +859,8 @@
             <code>@app.route</code>.
           </p>
           <p class="fragment">
-            This is needed as by default, <code>@app.route</code> binds a Python function to
-            <strong>only</strong> take on GET requests.
+            This is needed as by default, <code>@app.route</code> tells a Python function to
+            <strong>only take on GET requests</strong>.
           </p>
         </section>
 
@@ -882,7 +927,7 @@
           <h3>Bonus exercises</h3>
           <ol>
             <li>
-              Write three more functions, binding them with the appropriate routing pattern,
+              Write three more functions, then decorate them with the appropriate routing pattern,
               such that all the pages mentioned on the nav bar can be visited.
             </li>
             <li>
@@ -903,7 +948,9 @@
         <section id="bonus-exercises-2">
           <p>
             3. Download the text file with the list of #ShefCodeFirst Python course members
-            <a href="https://raw.githubusercontent.com/darrenvong/shefcodefirst-python-code/master/session2/python_course_members.txt">
+            <a
+              href="https://raw.githubusercontent.com/darrenvong/shefcodefirst-python-code/master/session2/python_course_members.txt"
+              target="_blank">
               here.
             </a>
             Load the course members into a list using part of the code shown in the
@@ -913,7 +960,7 @@
             </a>
           </p>
           <p>
-            4. Then, write a function, bind it to an appropriate routing pattern such that when you
+            4. Now write a function, decorate it with an appropriate routing pattern such that when you
             visit <code>localhost:5000/shefcodefirst-members</code>, all members are printed out
             in a list on the web page.
           </p>
@@ -924,7 +971,7 @@
 
         <section id="bonus-exercises-3">
           <p>
-            5. Add three more functions & bind them to appropriate routing pattern such that when you
+            5. Write another function, decorate it with an appropriate routing pattern such that when you
             visit <code>localhost:5000/shefcodefirst-members/students</code>, only the students are
             printed out on the page.
           </p>
@@ -934,16 +981,22 @@
         </section>
 
         <section id="bonus-exercises-4">
+          <h3>Using external data with Flask: bonus exercises</h3>
+          <small>
+            The next three exercises aim to give you some ideas on how you might use external
+            data with your app ahead of the API session next week!
+          </small>
           <p>
-             6. **Download the sample weather data
-            <a href="https://raw.githubusercontent.com/darrenvong/shefcodefirst-python-code/master/session4/weather_data.json">
-              here.
-            </a>
+             6. **Download the
+            <a href="https://raw.githubusercontent.com/darrenvong/shefcodefirst-python-code/master/session4/weather_data.json"
+              target="_blank">
+              sample weather data here
+            </a>.
             Then, load in the data from the text file into a dictionary.
             (Hint: You may want to Google how to do that using the <code>json.load</code> function in Python.)
           </p>
           <p>
-            7. Write a function, bind it to the routing pattern "weather/&lt;location&gt;", such that when
+            7. Write a function, decorate it with the routing pattern "weather/&lt;location&gt;", such that when
             you visit <code>localhost:5000/weather/London</code>, it outputs the temperature and a short
             description of London's weather.
           </p>
@@ -980,6 +1033,17 @@
           { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
         ]
       });
+
+      // If debug flag is included, clicking on slide triggers an alert showing
+      // you what the current slide number is.
+      if (location.href.indexOf('debug=1') !== -1) {
+        document.addEventListener('DOMContentLoaded', function(e) {
+          document.querySelector('.slides').addEventListener('click', function(e) {
+            const currentSlideIndex = Reveal.getIndices().h;
+            alert('The current slide index is ' + currentSlideIndex);
+          })
+        });
+      }
     </script>
   </body>
 </html>
