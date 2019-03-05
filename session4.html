@@ -200,6 +200,56 @@
         </section>
 
         <!-- TO-DO: a small section on importing libraries -->
+        <section>
+          <h3>Importing code</h3>
+          <p>
+            By default, <strong>only statements </strong>(like <code>if</code> and <code>for</code>)
+            and
+            <a href="https://docs.python.org/3/library/functions.html" target="_blank">
+              these built-in functons
+            </a>
+            are available to Python.
+          </p>
+          <p class="fragment">
+            To use other code you or others have written in another file,
+            we need to tell Python where they are...
+          </p>
+          <p class="fragment">... and we do that by <strong>importing</strong> them.</p>
+        </section>
+
+        <section>
+          <h3>Importing code: example 1</h3>
+          <p>
+            We can calculate the factorial of a number by bringing in (importing) the
+            <code>math</code> library.
+          </p>
+          <div data-markdown>
+          ```python
+          import math
+          five_factorial = math.factorial(5)
+          print(five_factorial) # 120
+          ```
+          </div>
+        </section>
+
+        <section>
+          <h3>Importing code: example 2</h3>
+          <p>
+            We can generate a random number between 1 and 10 by importing the <code>randint</code>
+            function from the <code>random</code> library.
+          </p>
+          <p>
+            <strong>Note how I phrased that differently</strong> - this is to reflect the
+            different import style.
+          </p>
+          <div data-markdown>
+            ```python
+            from random import randint
+            random_number = randint(1, 10)
+            print(random_number) # 5 (different each time)
+            ```
+          </div>
+        </section>
 
         <section>
           <h3>And now...</h3>
@@ -239,7 +289,7 @@
           <ul>
             <li>
               Re-writing (or lots of copy and pasting) common HTML parts each time we make
-              a new page gets <strong>tedious</strong>.
+              a new page is highly <strong>error-prone</strong>.
             </li>
             <li class="fragment">Repetition of code is (generally) a bad idea.</li>
           </ul>
@@ -274,7 +324,7 @@
             How do templates solve our problems for static pages?
           </h3>
           <p>
-            For static pages, where we know all of the HTML markup we want to write anyway,
+            For <strong>static pages</strong>, where we know all of the HTML markup we want to write anyway,
             we can break it into multiple, smaller template parts.
           </p>
           <p class="fragment">
@@ -283,7 +333,7 @@
           </p>
           <p class="fragment">
             Suppose you need to add a new link to a navigation bar, you only need to
-            do this <strong>once</strong> as opposed to <strong>every page</strong>
+            do this <strong>once as opposed to every page</strong>
             you have across the entire app.
           </p>
         </section>
@@ -296,8 +346,8 @@
             <strong>we know for definite</strong>.
           </p>
           <p class="fragment">
-            For parts we don't know, the HTML is generated with some logics using
-            Python-like code with data from a user's <strong>request</strong> when they
+            For parts we don't know, the HTML is <strong>generated</strong> with some logics
+            <strong>using Python-like code</strong> with data <strong>from a user's request</strong> when they
             visit our website.
           </p>
           <p class="fragment">Let's see how we can do this in <strong>Flask</strong>!</p>
@@ -372,7 +422,7 @@
             copy & paste what you had in <strong>index.html</strong> and adapt.
           </p>
           <p class="fragment">
-            But as mentioned earlier, this is <strong>tedious</strong> & <strong>error prone</strong>.
+            But as mentioned earlier, this is <strong>tedious</strong> & <strong>error-prone</strong>.
           </p>
         </section>
 
@@ -488,15 +538,22 @@
           </div>
         </section>
 
-        <section>
-          Then, create a new HTML file called <strong>hello.html</strong> in the
-          <strong>templates</strong> folder and write
-          in the following:
+        <section id="first-dynamic-template">
+          <p>
+            Then, edit <strong>index.html</strong> in the
+            <strong>templates</strong> folder and write
+            in the following just before the <code>&lt;/body&gt;</code> tag:
+          </p>
           <div data-markdown>
             ```django
             {% include "header.html" %}
+
+            {% if user %}
+              &lt;h1&gt;Hello {{ user }}&lt;/h1&gt;
+            {% else %}
+              &lt;h1&gt;Hello world!&lt;/h1&gt;
+            {% endif %}
             
-            &lt;h1&gt;Hello {{ user }}!&lt;/h1&gt;
             &lt;/body&gt;
             
             &lt;/html&gt;
@@ -516,7 +573,7 @@
           </p>
           <p class="fragment">
             The <code>&lt;name&gt;</code> part of the pattern is what's known as a
-            <a href="http://flask.pocoo.org/docs/0.12/quickstart/#variable-rules" target="_blank">
+            <a href="http://flask.pocoo.org/docs/1.0/quickstart/#variable-rules" target="_blank">
               variable URL part
             </a>.
           </p>
@@ -552,13 +609,29 @@
             The <strong>final big change</strong> we made is in our "new" HTML template.
           </p>
           <p class="fragment">
-            In <strong>templates/hello.html</strong>, instead of writing
-            <code>Hello world!</code> between the <strong>h1</strong> tags, we changed it
-            to <code>Hello {{ user }}!</code>.
+            Instead of writing
+            <code>Hello world!</code> between the <code>&lt;h1&gt;</code> tags, we changed it
+            to:
+          </p>
+        </section>
+
+        <section>
+          <div data-markdown>
+            ```django
+            {% if user %}
+              &lt;h1&gt;Hello {{ user }}&lt;/h1&gt;
+            {% else %}
+              &lt;h1&gt;Hello world!&lt;/h1&gt;
+            {% endif %}
+            ```
+          </div>
+          <p class="fragment">
+            The if-else logic makes sure the template won't crash when <strong>index.html</strong>
+            is used on the <code>/</code> route (i.e. when we visit <code>localhost:5000</code>).
           </p>
           <p class="fragment">
-            Doing so allows us to output the value in the <strong>user</strong> variable we
-            obtained earlier from our Python Flask code.
+            The double braces around the <strong>user</strong> variable (came from the earlier Flask code)
+            allows us to output its value onto the page.
           </p>
         </section>
 
@@ -601,8 +674,11 @@
         </section>
 
         <section>
+          <h3><i class="fa fa-code"></i>
+            Using Python statements: another example
+          </h3>
           <p>
-            Here's an example on how we can print out a list of things with the
+            This example shows how we can print out a list of things with the
             <strong>same HTML markup</strong> without repeating ourselves:
           </p>
           <div data-markdown>
@@ -836,7 +912,7 @@
           <h3>🤔 Handling POST request in Flask... what's happening?</h3>
           <p>
             Firstly, we introduced a new <strong>form</strong> element in our main
-            <strong>index.html</strong> template. Here are some key things to note:
+            <strong>index.html</strong> template. Key things to note:
           </p>
           <p class="fragment">
             The <strong>action</strong> attribute in the <code>form</code> tag corresponds to
@@ -844,7 +920,7 @@
           </p>
           <p class="fragment">
             The <strong>name</strong> attribute in the <code>input</code> tags become the
-            keys we use to access the data from <code>request.values</code> dict on the Python
+            keys we use to access the data from the <code>request.values</code> dictionary on the Python
             side.
           </p>
         </section>
@@ -918,6 +994,15 @@
             <code>@app.route</code> function binding we wrote earlier.
           </small>
         </section>
+
+        <section>
+          <h3>😳 Before we forget...</h3>
+          <p>
+            Now that we have all of these new bits of code working, let's make sure
+            <strong>we don't lose them</strong> by remembering to
+            <strong>push our code </strong>to GitHub!
+          </p>
+        </section>
         
         <section>
           <h2>The end!</h2>
@@ -927,11 +1012,15 @@
           <h3>Bonus exercises</h3>
           <ol>
             <li>
-              Write three more functions, then decorate them with the appropriate routing pattern,
+              Write two more functions, then decorate them with the appropriate routing pattern,
               such that all the pages mentioned on the nav bar can be visited.
             </li>
             <li>
-              Link up the extra pages you just made correctly such that the nav bar is no longer
+              Create two HTML template files, inside the <strong>templates</strong> folder,
+              for the <strong>About</strong> and <strong>Contact</strong> pages on the nav bar.
+            </li>
+            <li>
+              Link up the extra pages you've just made so that the nav bar is no longer
               fictional.
               (Hint: You may want to look at how to do so using <code>url_for</code>
               <a href="http://flask.pocoo.org/docs/0.12/quickstart/#url-building" target="_blank">here</a>,
@@ -946,8 +1035,13 @@
         </section>
 
         <section id="bonus-exercises-2">
+          <h3>Using external data with Flask: bonus exercises</h3>
+          <small>
+            The next three exercises aim to give you some ideas on how you might use external
+            data with your app ahead of the API session next week!
+          </small>
           <p>
-            3. Download the text file with the list of #ShefCodeFirst Python course members
+            4. Download the text file with the list of #ShefCodeFirst Python course members
             <a
               href="https://raw.githubusercontent.com/darrenvong/shefcodefirst-python-code/master/session2/python_course_members.txt"
               target="_blank">
@@ -960,7 +1054,7 @@
             </a>
           </p>
           <p>
-            4. Now write a function, decorate it with an appropriate routing pattern such that when you
+            5. Now write a function, decorate it with an appropriate routing pattern such that when you
             visit <code>localhost:5000/shefcodefirst-members</code>, all members are printed out
             in a list on the web page.
           </p>
@@ -971,7 +1065,7 @@
 
         <section id="bonus-exercises-3">
           <p>
-            5. Write another function, decorate it with an appropriate routing pattern such that when you
+            6. Write another function, decorate it with an appropriate routing pattern such that when you
             visit <code>localhost:5000/shefcodefirst-members/students</code>, only the students are
             printed out on the page.
           </p>
@@ -981,22 +1075,23 @@
         </section>
 
         <section id="bonus-exercises-4">
-          <h3>Using external data with Flask: bonus exercises</h3>
+          <h3>Advanced use of external data: bonus exercises</h3>
           <small>
-            The next three exercises aim to give you some ideas on how you might use external
-            data with your app ahead of the API session next week!
+            The next three exercises aim to let you practice how to read, access and output data given
+            in a format
+            (<a href="https://www.json.org/" target="_blank">JSON</a>)
+            that's more realistic to ones you'll see in the next API session.
           </small>
           <p>
-             6. **Download the
+             7.* Download the
             <a href="https://raw.githubusercontent.com/darrenvong/shefcodefirst-python-code/master/session4/weather_data.json"
               target="_blank">
-              sample weather data here
-            </a>.
+              sample weather data here</a>.
             Then, load in the data from the text file into a dictionary.
             (Hint: You may want to Google how to do that using the <code>json.load</code> function in Python.)
           </p>
           <p>
-            7. Write a function, decorate it with the routing pattern "weather/&lt;location&gt;", such that when
+            8. Write a function, decorate it with the routing pattern "weather/&lt;location&gt;", such that when
             you visit <code>localhost:5000/weather/London</code>, it outputs the temperature and a short
             description of London's weather.
           </p>
@@ -1007,9 +1102,10 @@
         
         <section id="bonus-exercises-5">
           <p>
-            8. To see if you've written the function correctly, visit
-            <code>localhost:5000/Prague</code> and see if you can get the temperature and
-            weather description of Prague printing too!
+            9. To see if you've written the function correctly, visit
+            <code>localhost:5000/weather/Prague</code> and see if you can get the
+            temperature (-4°C) and
+            weather description (clear sky) of Prague printing too!
           </p>
           <hr>
           <a href="#/extra"><small>Go back</small></a>
