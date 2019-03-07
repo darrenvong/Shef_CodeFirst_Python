@@ -8,12 +8,8 @@ using the Graphical User Interface... and more.
 This (mini)tutorial will guide you through the very basics of using
 the command line.
 
-When you launch a terminal, the default path/location is your home directory, however
-if at any point you are unsure which folder you are "in" (which is your working
-directory) you only need to type the command `pwd`.
-
 ## Understanding the syntax
-When you open the terminal you might see a *prompt* similar to:
+When you open the terminal (on Mac/Linux computers) you might see a *prompt* similar to:
 
 ```
 username@computer ~ $
@@ -22,13 +18,24 @@ username@computer ~ $
 - The `~` character is typically shorthand for your *home directory*.  Here you being told that your *present working directory* is your home directory.
 - The `$` (Ready) indicates that the prompt is ready to accept your command; the `$` is just there, you do not need to type it.
 
+On Windows PowerShell, you would see a prompt similar to:
+
+```
+C:\Users\Darren>
+```
+
+# Print out the terminal's current folder
+When you launch a terminal, the default path/location is your home directory, however
+if at any point you are unsure which folder you are "in" (which is your working
+directory) you only need to type the command `pwd`.
+
 ## Clear
 At some point you might end up with your terminal full of lines. By typing the command `clear` you can clear the terminal screen.
 
 ## Listing the Directory contents
 If within a directory you want to see its content you can use the `ls` command.
 
-If you need more detailed information on the contents (e.g. access permissions,
+_(Mac/Linux only)_ If you need more detailed information on the contents (e.g. access permissions,
 date the file was last modified, etc.) you can use the command `ls -l`.
 
 ## Moving between directories
@@ -56,12 +63,16 @@ mkdir -p Helloworld/data/myproject/test1/
 ```
 
 ## Creating files
-You can create empty files using the `touch` command, for example `touch project.scala`. For this you need to be into the directory you want the file to be created, otherwise you need to specify the full path of the file:
+On Mac/Linux computers, you can create empty files using the `touch` command, for example `touch project.scala`. For this you need to be into the directory you want the file to be created, otherwise you need to specify the full path of the file:
 
 `touch HelloWorld/data/one.txt`
 
 You can even create multiple files at a time `touch one.txt two.txt`
 
+On Windows Powershell, it's this more obscure command, which outputs (echos) nothing (`$null`) into a file:
+```
+echo $null > one.txt
+```
 
 ## Deleting files
 To permanently delete files you can use the `rm` command e.g.
