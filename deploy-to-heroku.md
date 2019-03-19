@@ -9,6 +9,49 @@ which will assign a publicly accessible URL to our app that can then be visited!
 
 Without further ado, let's go through how you can deploy your first app to Heroku!
 
+0. Before your app can be deployed, there are some chores you need to do first:
+   * Make a `Procfile` in the **root folder** of your application. This file contains the Command Prompt/Terminal command telling Heroku exactly how to start/run your application.
+   It normally contains only the following line:
+   ```
+   web: python app.py
+   ```
+   Replace `app.py` with the actual name of your file containing your Flask code if you named it something different.
+   In case you're curious: the `web:` part before the command tells Heroku to run your Python code as a web application.
+   
+   * Make a file named `requirements.txt` in the **root folder** of your application. This file lists all the external libraries
+   (such as `Flask` and `tweepy`) required by your application, so that Heroku knows exactly the required libraries to install
+   before trying to run your application.
+   In this file, type in the libraries your application require line by line, which may look something like the following:
+   ```
+   flask
+   requests
+   tweepy
+   ```
+   
+   * In `app.py` (or whatever you named your main file containing the Flask code), add the following line to the top
+   of your Flask code:
+   ```python
+   import os
+   ```
+   For the curious: the `os` module is imported so that we can access *environment variables* set by Heroku, which includes the
+   *port* it has assigned to run your application on.
+   
+   Next (usually near the bottom of your Flask code), replace
+   ```python
+   app.run(debug=True)
+   ```
+   with the following:
+   ```python
+   if 'PORT' in os.environ:
+        app.run(host='0.0.0.0', port=int(os.environ['PORT']))
+   else:
+        app.run(debug=True)
+   ```
+   Again, for the curious: this piece of conditional logic checks whether you are running your application on Heroku
+   (in which case, the `PORT` environment variable would exist), or if you are running your application locally. The
+   `host=0.0.0.0` bit instructs your Flask application to listen on **all** web address. This is important to ensure
+   the application runs on Heroku since we don't know which host Heroku will decide to host the application on.
+
 1. If you haven't already, go make a Heroku account at https://www.heroku.com
 
 2. Once you have made a Heroku account, upon logging in, you will be taken to a dashboard, which looks something like the
