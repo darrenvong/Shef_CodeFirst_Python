@@ -25,6 +25,7 @@ Without further ado, let's go through how you can deploy your first app to Herok
    ```
    flask
    requests
+   python-dotenv
    tweepy
    ```
    
