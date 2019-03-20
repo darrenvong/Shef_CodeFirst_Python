@@ -159,9 +159,20 @@ css: "/css/session6.css"
 </section>
 
 <section>
+  <h3>Summary of changes to our local project</h3>
+  <ul>
+    <li>create Procfile</li>
+    <li>create requirenments.txt</li>
+    <li>in our app ```python import os```</li>
+    <li>in our app replace ```python app.run(debug=True)```</li>
+    <li>commit and push our changes to github!</li>
+  </ul>
+</section>
+
+<section>
   <h3>Config (environment) variables</h3>
   <p>
-    Instead of storing our API keys in a config file, Heroku lets us store our API keys in
+    Instead of storing our API keys in a .env file, Heroku lets us store our API keys in
     <strong>config variables instead.</strong>
   </p>
   <p class="fragment">
@@ -180,9 +191,12 @@ css: "/css/session6.css"
     ```python
     import os
     import tweepy
+    from dotenv import load_dotenv
 
-    consumer_key = os.environ["twitter_consumer_key"]
-    consumer_secret = os.environ["twitter_consumer_secret"]
+    load_dotenv()
+
+    consumer_key = os.getenv("twitter_consumer_key")
+    consumer_secret = os.getenv("twitter_consumer_secret")
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     ...
     ```
